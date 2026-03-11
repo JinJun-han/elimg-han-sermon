@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="엘림G선교회 한진준 목사 설교 아카이브 — 다국어 설교문, 이주민 사역 말씀 나눔. 한국어·영어·베트남어·네팔어·태국어 등 9개 언어 지원.">
+<meta name="keywords" content="한진준목사,엘림G선교회,설교,다국어설교,이주민설교,GlocalBridge,글로컬브릿지,sermon,multilingual">
+<meta property="og:title" content="한진준 목사 설교 아카이브 | 엘림G선교회">
+<meta property="og:description" content="다국어 설교문 아카이브 — 9개 언어로 하나님 말씀을 나눕니다">
+<meta property="og:url" content="https://elimg-han-sermon.netlify.app">
+<title>설교 아카이브 | 한진준 목사 · 엘림G선교회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#5B2C3F;--wine-deep:#3D1A2B;--wine-light:#8B4A63;
+  --gold:#C49A22;--gold-light:#E8C05A;--gold-pale:#FDF6E3;
+  --cream:#FDFBF7;--white:#FFFFFF;--off-white:#F8F5F0;
+  --gray:#8B8078;--text:#2D2D2D;--green:#1A5C38;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0 5%;height:64px;background:rgba(61,26,43,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,154,34,0.2);transition:background .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.nav-logo-txt{font-family:'Playfair Display',serif;font-size:14px;color:var(--white);letter-spacing:1px}
+.nav-logo-sub{font-size:10px;color:var(--gold-light);display:block}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--gold-light)}
+.btn-nav{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--wine-deep)!important;padding:7px 18px;border-radius:6px;font-weight:700!important}
+
+/* HAMBURGER */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:200}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(61,26,43,.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:28px;backdrop-filter:blur(16px)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,.85);text-decoration:none;font-size:18px;font-weight:500}
+
+/* HERO */
+.hero{min-height:80vh;background:var(--wine-deep);position:relative;display:flex;align-items:center;padding-top:64px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(196,154,34,.08) 0%,transparent 60%)}
+.hero-content{position:relative;z-index:2;width:100%;max-width:900px;margin:0 auto;padding:80px 5%;text-align:center}
+.hero-cross{font-size:48px;margin-bottom:20px;display:block;color:var(--gold-light);opacity:.7}
+.hero-en{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);color:var(--white);line-height:1.2;margin-bottom:10px}
+.hero-en em{color:var(--gold-light);font-style:italic}
+.hero-kr{font-family:'Noto Serif KR',serif;font-size:clamp(16px,2.5vw,24px);color:rgba(255,255,255,.5);margin-bottom:24px;font-weight:400}
+.hero-verse{border-left:3px solid var(--gold);padding:14px 20px;margin:0 auto 36px;max-width:600px;background:rgba(196,154,34,.06);border-radius:0 8px 8px 0;text-align:left}
+.hero-verse p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;font-style:italic}
+.hero-verse cite{font-size:11px;color:var(--gold);margin-top:4px;display:block}
+.hero-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.9;margin-bottom:36px;max-width:640px;margin-left:auto;margin-right:auto}
+.hero-stats{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-stat{text-align:center}
+.hero-stat .hs-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold-light);line-height:1}
+.hero-stat .hs-label{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--wine-deep);padding:13px 28px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,154,34,.35)}
+.btn-outline{border:1px solid rgba(255,255,255,.28);color:var(--white);padding:13px 28px;border-radius:8px;font-weight:500;font-size:14px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SECTION COMMON */
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-label{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:10px}
+.divider{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:18px auto;border-radius:2px}
+
+/* SERMON LIST */
+.sermon-sec{padding:96px 5%;background:var(--white)}
+.sermon-sec h2{font-family:'Noto Serif KR',serif;font-size:clamp(22px,3vw,34px);color:var(--wine);font-weight:700;margin-bottom:10px;text-align:center}
+.sermon-sec .sub{font-size:14px;color:var(--gray);text-align:center;line-height:1.85;margin-bottom:48px}
+.sermon-filter{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
+.sermon-filter-btn{padding:8px 18px;border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;border:1px solid rgba(91,44,63,.2);background:var(--white);color:var(--wine);transition:all .2s}
+.sermon-filter-btn:hover,.sermon-filter-btn.active{background:var(--wine);color:#fff;border-color:var(--wine)}
+.sermon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.sermon-card{background:var(--cream);border-radius:16px;padding:28px;border:1px solid rgba(91,44,63,.08);transition:all .3s;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.sermon-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--wine),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.sermon-card:hover{border-color:rgba(91,44,63,.2);box-shadow:0 12px 40px rgba(91,44,63,.1);transform:translateY(-4px)}
+.sermon-card:hover::before{transform:scaleX(1)}
+.sc-date{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;margin-bottom:10px}
+.sc-title{font-family:'Noto Serif KR',serif;font-size:19px;color:var(--wine);font-weight:700;margin-bottom:8px;line-height:1.45}
+.sc-ref{font-size:13px;color:var(--wine-light);margin-bottom:12px;font-weight:500}
+.sc-desc{font-size:13px;color:#6B6560;line-height:1.85;margin-bottom:16px}
+.sc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.sc-tag{background:var(--white);border:1px solid rgba(91,44,63,.12);color:var(--wine);padding:3px 10px;border-radius:12px;font-size:10.5px;font-weight:500}
+.sc-langs{font-size:10px;color:var(--gray)}
+.sc-arrow{position:absolute;bottom:28px;right:28px;width:36px;height:36px;border-radius:50%;background:var(--wine);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s}
+.sermon-card:hover .sc-arrow{background:var(--gold);color:var(--wine-deep)}
+
+/* UPCOMING */
+.upcoming{padding:72px 5%;background:var(--off-white)}
+.upcoming h2{font-family:'Noto Serif KR',serif;font-size:clamp(20px,2.5vw,28px);color:var(--wine);font-weight:700;margin-bottom:8px;text-align:center}
+.upcoming-cards{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.upcoming-card{background:var(--white);border-radius:14px;padding:24px;border:1px solid rgba(91,44,63,.08);text-align:center;min-width:200px;max-width:260px;flex:1}
+.upcoming-card .uc-icon{font-size:32px;margin-bottom:10px}
+.upcoming-card h3{font-size:14px;color:var(--wine);font-weight:700;margin-bottom:6px}
+.upcoming-card p{font-size:12px;color:var(--gray);line-height:1.7}
+
+/* ABOUT PASTOR */
+.pastor{padding:96px 5%;background:var(--white)}
+.pastor-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:center}
+.pastor-photo{width:220px;height:270px;border-radius:16px;background:linear-gradient(135deg,var(--wine) 0%,var(--wine-deep) 100%);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white)}
+.pastor-photo .pp-icon{font-size:60px;display:block;margin-bottom:10px}
+.pastor-photo .pp-name{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700}
+.pastor-photo .pp-title{font-size:11px;color:var(--gold-light);margin-top:4px}
+.pastor-info h2{font-family:'Noto Serif KR',serif;font-size:clamp(20px,2.5vw,28px);color:var(--wine);font-weight:700;margin-bottom:14px;line-height:1.45}
+.pastor-info p{font-size:13.5px;color:#4A4540;line-height:2;margin-bottom:16px}
+.pastor-roles{display:flex;flex-wrap:wrap;gap:7px}
+.pastor-role{display:flex;align-items:center;gap:5px;background:var(--cream);border:1px solid rgba(91,44,63,.1);padding:6px 12px;border-radius:8px;font-size:11.5px;color:var(--wine);font-weight:500}
+.pastor-role span{font-size:14px}
+
+/* LANGUAGES */
+.lang-sec{padding:80px 5%;background:linear-gradient(135deg,var(--wine) 0%,var(--wine-deep) 100%)}
+.lang-inner{max-width:900px;margin:0 auto;text-align:center}
+.lang-inner h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,38px);color:var(--white);margin-bottom:14px}
+.lang-inner p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:36px}
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.lang-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px;transition:all .2s}
+.lang-card:hover{background:rgba(196,154,34,.1);border-color:rgba(196,154,34,.3)}
+.lang-card .lc-flag{font-size:28px;margin-bottom:6px}
+.lang-card .lc-name{font-size:13px;color:var(--white);font-weight:600}
+.lang-card .lc-native{font-size:11px;color:rgba(255,255,255,.45)}
+
+/* CONNECT */
+.connect{padding:80px 5%;background:var(--cream)}
+.connect-inner{max-width:900px;margin:0 auto;text-align:center}
+.connect h2{font-family:'Noto Serif KR',serif;font-size:clamp(20px,3vw,30px);color:var(--wine);font-weight:700;margin-bottom:14px}
+.connect p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:32px}
+.connect-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.con-link{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;text-decoration:none;font-size:13px;font-weight:600;transition:all .2s;border:1px solid rgba(91,44,63,.15);background:var(--white);color:var(--wine)}
+.con-link:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(91,44,63,.12);border-color:var(--wine)}
+
+/* FOOTER */
+footer{background:var(--wine-deep);padding:40px 5% 24px;border-top:1px solid rgba(196,154,34,.15)}
+.ft-inner{max-width:1100px;margin:0 auto;text-align:center}
+footer h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);margin-bottom:8px}
+footer p{font-size:12px;color:rgba(255,255,255,.35);line-height:1.85;margin-bottom:6px}
+footer .ft-links{display:flex;gap:18px;justify-content:center;margin:18px 0}
+footer .ft-links a{font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+footer .ft-links a:hover{color:var(--gold-light)}
+footer .ft-copy{font-size:11px;color:rgba(255,255,255,.2);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06)}
+footer .ft-mission{font-size:11px;color:rgba(196,154,34,.4);font-style:italic;margin-top:6px}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .pastor-inner{grid-template-columns:1fr;text-align:center}
+  .pastor-photo{margin:0 auto;width:180px;height:220px}
+  .pastor-roles{justify-content:center}
+}
+@media(max-width:600px){
+  .sermon-grid{grid-template-columns:1fr}
+  .connect-links{flex-direction:column;align-items:center}
+  .hero-stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">✝</div>
+    <div>
+      <span class="nav-logo-txt">Sermon Archive</span>
+      <span class="nav-logo-sub">한진준 목사 설교 아카이브</span>
+    </div>
+  </a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="nav-links">
+      <a href="#sermons">설교 목록</a>
+      <a href="#pastor">목사 소개</a>
+      <a href="#languages">지원 언어</a>
+      <a href="https://elimg.kr" target="_blank" style="color:rgba(196,154,34,.7)">선교회 ↗</a>
+      <a href="https://elimg.com" target="_blank" style="color:rgba(196,154,34,.7)">AI 컨설팅 ↗</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sermons" onclick="closeMenu()">설교 목록</a>
+  <a href="#pastor" onclick="closeMenu()">목사 소개</a>
+  <a href="#languages" onclick="closeMenu()">지원 언어</a>
+  <a href="https://elimg.kr" target="_blank" onclick="closeMenu()" style="color:var(--gold-light)">선교회 ↗</a>
+  <a href="https://elimg.com" target="_blank" onclick="closeMenu()" style="color:var(--gold-light)">AI 컨설팅 ↗</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-cross">✝</span>
+    <h1 class="hero-en">Sermon <em>Archive</em></h1>
+    <p class="hero-kr">한진준 목사 · 설교 아카이브</p>
+    <div class="hero-verse">
+      <p>"모든 성경은 하나님의 감동으로 된 것으로 교훈과 책망과 바르게 함과 의로 교육하기에 유익하니"</p>
+      <cite>— 디모데후서 3:16</cite>
+    </div>
+    <p class="hero-desc">엘림G선교회 한진준 목사의 설교를 9개 언어로 나눕니다.<br>이주민 현장에서 울려 퍼지는 하나님의 말씀을 기록하고 보존합니다.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num" id="sermonCount">1</div><div class="hs-label">편 설교</div></div>
+      <div class="hero-stat"><div class="hs-num">9</div><div class="hs-label">개 언어</div></div>
+      <div class="hero-stat"><div class="hs-num">30+</div><div class="hs-label">년 사역</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#sermons" class="btn-primary">✝ 설교 보기</a>
+      <a href="https://elimg.kr" target="_blank" class="btn-outline">선교회 방문 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERMON LIST -->
+<section class="sermon-sec" id="sermons">
+  <div class="sec-inner">
+    <span class="sec-label reveal">SERMONS</span>
+    <h2 class="reveal">설교 아카이브</h2>
+    <p class="sub reveal">하나님의 말씀을 다국어로 기록하고 나눕니다 — 새로운 설교가 지속적으로 업데이트됩니다</p>
+
+    <div class="sermon-filter reveal">
+      <span class="sermon-filter-btn active" data-filter="all">전체</span>
+      <span class="sermon-filter-btn" data-filter="gospel">복음서</span>
+      <span class="sermon-filter-btn" data-filter="ot">구약</span>
+      <span class="sermon-filter-btn" data-filter="epistle">서신서</span>
+      <span class="sermon-filter-btn" data-filter="special">특별 설교</span>
+    </div>
+
+    <div class="sermon-grid" id="sermonGrid">
+      <!-- Sermons are rendered by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING -->
+<section class="upcoming">
+  <div class="sec-inner">
+    <span class="sec-label reveal">COMING SOON</span>
+    <h2 class="reveal">다음 설교 예고</h2>
+    <div class="upcoming-cards">
+      <div class="upcoming-card reveal">
+        <div class="uc-icon">📖</div>
+        <h3>누가복음 시리즈</h3>
+        <p>누가복음 연속 강해를 통해 예수님의 삶과 사역을 깊이 묵상합니다</p>
+      </div>
+      <div class="upcoming-card reveal">
+        <div class="uc-icon">🌏</div>
+        <h3>이주민 사역 특강</h3>
+        <p>현장에서 울려 퍼지는 다국어 말씀과 사역 이야기</p>
+      </div>
+      <div class="upcoming-card reveal">
+        <div class="uc-icon">🎓</div>
+        <h3>글로컬 아카데미</h3>
+        <p>60주 과정 말씀 묵상과 선교 훈련 커리큘럼</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PASTOR -->
+<section class="pastor" id="pastor">
+  <div class="sec-inner">
+    <span class="sec-label reveal">PASTOR</span>
+    <div class="pastor-inner">
+      <div class="pastor-photo reveal">
+        <div>
+          <span class="pp-icon">✝</span>
+          <div class="pp-name">한진준</div>
+          <div class="pp-title">JinJun Han</div>
+        </div>
+      </div>
+      <div class="pastor-info reveal">
+        <h2>30년 이주민 사역의 현장에서<br>말씀을 전합니다</h2>
+        <p>1995년부터 이주민의 눈물과 함께하며, 18개국 이주민 공동체에서 하나님의 말씀을 전하고 있습니다. 네팔·베트남·미얀마·태국·스리랑카 등 다양한 언어와 문화 속에서 복음의 씨앗을 뿌리고, AI 기술을 활용하여 말씀을 다국어로 번역하고 나누고 있습니다.</p>
+        <div class="pastor-roles">
+          <div class="pastor-role"><span>✝</span>부산남부노회 파송 선교사</div>
+          <div class="pastor-role"><span>🤝</span>CBMC 김해한마음 지도목사</div>
+          <div class="pastor-role"><span>✦</span>글로컬브릿지 AI 대표</div>
+          <div class="pastor-role"><span>🎓</span>글로컬 아카데미 60주 운영</div>
+          <div class="pastor-role"><span>🌏</span>18개국 이주민 사역</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="lang-sec" id="languages">
+  <div class="lang-inner">
+    <span class="sec-label" style="color:var(--gold-light)">MULTILINGUAL</span>
+    <h2 class="reveal">9개 언어로 전하는 말씀</h2>
+    <p class="reveal">이주민 현장의 언어로 하나님의 말씀을 나눕니다.<br>전문(Full) 번역과 요약(Summary) 번역을 제공합니다.</p>
+    <div class="lang-grid">
+      <div class="lang-card reveal"><div class="lc-flag">🇰🇷</div><div class="lc-name">한국어</div><div class="lc-native">Full</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇺🇸</div><div class="lc-name">English</div><div class="lc-native">Full</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇻🇳</div><div class="lc-name">Tiếng Việt</div><div class="lc-native">Full</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇮🇩</div><div class="lc-name">Indonesia</div><div class="lc-native">Full</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇹🇭</div><div class="lc-name">ภาษาไทย</div><div class="lc-native">Summary</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇱🇰</div><div class="lc-name">සිංහල</div><div class="lc-native">Summary</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇷🇺</div><div class="lc-name">Русский</div><div class="lc-native">Summary</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇳🇵</div><div class="lc-name">नेपाली</div><div class="lc-native">Summary</div></div>
+      <div class="lang-card reveal"><div class="lc-flag">🇰🇭</div><div class="lc-name">ភាសាខ្មែរ</div><div class="lc-native">Summary</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section class="connect">
+  <div class="connect-inner">
+    <span class="sec-label reveal">CONNECT</span>
+    <h2 class="reveal">함께 연결됩니다</h2>
+    <p class="reveal">설교 요청, 사역 협력, 다국어 번역 문의 등 언제든 연락해 주세요</p>
+    <div class="connect-links reveal">
+      <a href="https://elimg.kr" target="_blank" class="con-link">✝ 엘림G선교회 (elimg.kr)</a>
+      <a href="https://elimg.com" target="_blank" class="con-link">✦ AI 컨설팅 (elimg.com)</a>
+      <a href="https://pf.kakao.com/_YIULn" target="_blank" class="con-link">💬 카카오톡 채널</a>
+      <a href="mailto:kodhjj@gmail.com" class="con-link">✉ kodhjj@gmail.com</a>
+      <a href="tel:+821020833106" class="con-link">📞 010-2083-3106</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <h3>Sermon Archive</h3>
+    <p>한진준 목사 설교 아카이브 · 엘림G선교회<br>
+    부산남부노회 공식 파송 이주민 선교사 · CBMC 김해한마음지회 지도목사</p>
+    <div class="ft-links">
+      <a href="https://elimg.kr" target="_blank">elimg.kr (선교회)</a>
+      <a href="https://elimg.com" target="_blank">elimg.com (AI 컨설팅)</a>
+      <a href="https://youtube.com/@glocalbridge" target="_blank">YouTube</a>
+      <a href="mailto:kodhjj@gmail.com">이메일</a>
+    </div>
+    <div class="ft-copy">© 2026 엘림G선교회 · 한진준 목사. All rights reserved.</div>
+    <div class="ft-mission">"AI로 잇는 하나님 나라 — Connecting Kingdom Through AI"</div>
+  </div>
+</footer>
+
+<script>
+// ===== SERMON DATA =====
+// 새 설교를 추가하려면 이 배열에 객체를 추가하세요
+const SERMONS = [
+  {
+    id: '001',
+    date: '2025.11.29',
+    title: '우연은 없다',
+    subtitle: '침묵 속에 담긴 하나님의 섭리',
+    reference: '누가복음 1:5-7',
+    category: 'gospel',
+    desc: '헤롯의 어둠 속에서도 하나님 앞에 의롭게 살아간 사가랴와 엘리사벳. 그들의 무자녀 고통 속에 담긴 하나님의 섭리를 묵상합니다.',
+    tags: ['누가복음', '섭리', '사가랴', '엘리사벳', '믿음'],
+    langs: '🇰🇷🇺🇸🇻🇳🇮🇩🇹🇭🇱🇰🇷🇺🇳🇵🇰🇭 (9개 언어)',
+    url: 'sermons/001-luke-1-5-7.html'
+  }
+  // ───── 새 설교 추가 가이드 ─────
+  // {
+  //   id: '002',
+  //   date: '2025.12.XX',
+  //   title: '설교 제목',
+  //   subtitle: '부제목',
+  //   reference: '성경 구절',
+  //   category: 'gospel' | 'ot' | 'epistle' | 'special',
+  //   desc: '설교 요약 설명',
+  //   tags: ['태그1', '태그2'],
+  //   langs: '🇰🇷🇺🇸 (2개 언어)',
+  //   url: 'sermons/002-filename.html'
+  // }
+];
+
+// Render sermon cards
+function renderSermons(filter) {
+  const grid = document.getElementById('sermonGrid');
+  const filtered = filter === 'all' ? SERMONS : SERMONS.filter(s => s.category === filter);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px 20px;grid-column:1/-1"><p style="font-size:15px;color:var(--gray)">해당 카테고리의 설교가 아직 없습니다.<br>새로운 설교가 곧 업데이트됩니다.</p></div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(s => `
+    <a href="${s.url}" class="sermon-card reveal visible" data-cat="${s.category}">
+      <div class="sc-date">${s.date}</div>
+      <div class="sc-title">${s.title}</div>
+      <div class="sc-ref">${s.reference} — ${s.subtitle}</div>
+      <div class="sc-desc">${s.desc}</div>
+      <div class="sc-tags">${s.tags.map(t => `<span class="sc-tag">${t}</span>`).join('')}</div>
+      <div class="sc-langs">${s.langs}</div>
+      <div class="sc-arrow">→</div>
+    </a>
+  `).join('');
+}
+
+// Init
+renderSermons('all');
+document.getElementById('sermonCount').textContent = SERMONS.length;
+
+// Filter buttons
+document.querySelectorAll('.sermon-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sermon-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderSermons(btn.dataset.filter);
+  });
+});
+
+// Reveal observer
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 70);
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').style.background =
+    window.scrollY > 50 ? 'rgba(61,26,43,0.98)' : 'rgba(61,26,43,0.96)';
+});
+
+// Hamburger
+function toggleMenu() {
+  document.querySelector('.hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.querySelector('.hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

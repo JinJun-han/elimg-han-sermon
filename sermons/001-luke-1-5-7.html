@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SNS 공유를 위한 Open Graph 태그 -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="침묵 속에 담긴 하나님의 섭리, '우연은 없다'">
+    <meta property="og:description" content="엘림G선교회 한진준 목사 설교문 (누가복음 1:5-7)">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:url" content="">
+    
+    <title>설교문: 우연은 없다</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: 모든 언어 지원을 위한 폰트 로드 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Thai:wght@300;400;600&family=Noto+Serif+Khmer:wght@400;600&family=Noto+Serif+Sinhala:wght@400;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icon Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Noto Serif KR', 'Noto Serif', serif;
+            background-color: #fdfbf7;
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+        /* 언어별 폰트 적용 클래스 */
+        body.lang-th { font-family: 'Noto Serif Thai', serif; }
+        body.lang-km { font-family: 'Noto Serif Khmer', serif; line-height: 2.0; } 
+        body.lang-si { font-family: 'Noto Serif Sinhala', serif; }
+        body.lang-ne { font-family: 'Noto Serif Devanagari', serif; }
+        
+        .chapter-number {
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+        
+        @media print {
+            body { background-color: white; }
+            .no-print { display: none !important; }
+            .print-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 relative">
+
+    <!-- 상단 도구 모음 (언어 선택 + 인쇄) -->
+    <div class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center mb-8 gap-4 no-print z-50">
+        
+        <!-- 언어 선택기 -->
+        <div class="relative w-full sm:w-auto">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <i data-lucide="globe" class="w-4 h-4 text-stone-500"></i>
+            </div>
+            <select id="languageSelector" onchange="changeLanguage()" class="bg-white border border-stone-300 text-stone-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full pl-10 p-2.5 shadow-sm appearance-none cursor-pointer">
+                <option value="ko" selected>🇰🇷 한국어 (Korean - Full)</option>
+                <option value="en">🇺🇸 English (English - Full)</option>
+                <option value="vi">🇻🇳 Tiếng Việt (Vietnamese - Full)</option>
+                <option value="id">🇮🇩 Bahasa Indonesia (Indonesian - Full)</option>
+                <option value="th">🇹🇭 ภาษาไทย (Thai - Summary)</option>
+                <option value="si">🇱🇰 සිංහල (Sinhala - Summary)</option>
+                <option value="ru">🇷🇺 Русский (Russian - Summary)</option>
+                <option value="ne">🇳🇵 नेपाली (Nepali - Summary)</option>
+                <option value="km">🇰🇭 ភាសាខ្មែរ (Khmer - Summary)</option>
+            </select>
+        </div>
+
+        <button onclick="window.print()" class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 text-sm text-stone-600 bg-white border border-stone-200 rounded-lg hover:bg-stone-50 hover:border-stone-400 transition-colors shadow-sm">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span data-key="printBtn">인쇄하기</span>
+        </button>
+    </div>
+
+    <!-- 메인 컨텐츠 컨테이너 -->
+    <main class="w-full max-w-4xl bg-white shadow-xl rounded-2xl overflow-hidden border border-stone-100">
+        
+        <!-- 헤더 영역 -->
+        <header class="bg-stone-900 text-stone-50 py-16 px-8 sm:px-12 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-stone-500 via-amber-600 to-stone-500 relative z-10"></div>
+            
+            <div class="relative z-10">
+                <span class="block text-amber-500 text-sm font-bold tracking-widest uppercase mb-4" data-key="headerLabel">Sermon Message</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight break-keep">
+                    <span data-key="titleMain">침묵 속에 담긴 하나님의 섭리,</span><br>
+                    <span class="text-amber-100" data-key="titleSub">"우연은 없다"</span>
+                </h1>
+                <p class="text-stone-400 text-lg" data-key="scriptureRef">누가복음 1장 5-7절</p>
+            </div>
+        </header>
+
+        <!-- 본문 말씀 박스 -->
+        <div class="px-8 sm:px-12 py-12 bg-stone-100/50 border-b border-stone-200">
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-stone-200 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-amber-600 to-amber-800"></div>
+                
+                <h3 class="text-amber-800 font-bold text-lg mb-6 flex items-center gap-2 border-b border-stone-100 pb-3">
+                    <i data-lucide="book-open" class="w-5 h-5 text-amber-600"></i>
+                    <span class="tracking-wide" data-key="scriptureTitle">본문 말씀 (누가복음 1:5-7)</span>
+                </h3>
+                
+                <div class="space-y-6 text-stone-900 font-medium text-lg leading-loose font-serif">
+                    <p class="pl-4 border-l-2 border-transparent hover:border-amber-200 transition-colors flex items-start">
+                        <span class="font-bold text-amber-700 mr-3 select-none text-xl leading-none mt-1">5.</span>
+                        <span data-key="verse5">유대 왕 헤롯 때에 아비야 반열에 제사장 한 사람이 있었으니 이름은 사가랴요 그의 아내는 아론의 자손이니 이름은 엘리사벳이라</span>
+                    </p>
+                    <p class="pl-4 border-l-2 border-transparent hover:border-amber-200 transition-colors flex items-start">
+                        <span class="font-bold text-amber-700 mr-3 select-none text-xl leading-none mt-1">6.</span>
+                        <span data-key="verse6">이 두 사람이 하나님 앞에 의인이니 주의 모든 계명과 규례대로 흠이 없이 행하더라</span>
+                    </p>
+                    <p class="pl-4 border-l-2 border-transparent hover:border-amber-200 transition-colors flex items-start">
+                        <span class="font-bold text-amber-700 mr-3 select-none text-xl leading-none mt-1">7.</span>
+                        <span data-key="verse7">엘리사벳이 잉태를 못하므로 그들에게 자식이 없고 두 사람의 나이가 많더라</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 설교 본문 -->
+        <article class="px-8 sm:px-12 py-12 space-y-12">
+            
+            <!-- I. 서론 -->
+            <section>
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-6" data-key="section1Title">
+                    I. 서론: 모순적인 현실 앞에서
+                </h2>
+                <div class="text-lg text-stone-700 space-y-4 text-justify" data-key="section1Body">
+                    <p>사랑하는 성도 여러분, 주님이 주시는 평안과 축복이 여러분의 삶에 가득하기를 바랍니다. 오늘 우리는 누가복음의 서막을 여는 아주 특별한 부부, 사가랴와 엘리사벳을 만납니다.</p>
+                    <p>우리는 흔히 신앙생활을 잘하면 만사가 형통하고, 자녀가 잘 되고, 건강해야 한다고 생각합니다. 하나님께서 의인에게 복을 주시는 것은 당연한 이치이기 때문입니다. 하지만 우리 삶의 현장에는 설명할 수 없는 모순이 존재합니다. 정말 법 없이도 살 사람, 누구보다 하나님을 사랑하는 사람인데, 지독한 고난과 결핍 속에 있는 경우를 봅니다.</p>
+                    <p>오늘 본문이 바로 그 지점을 다루고 있습니다. 누가는 예수님의 탄생이라는 거대한 복음의 서막을 알리기에 앞서, 한 늙은 부부의 '결핍'과 '아픔'을 먼저 조명합니다. 왜일까요? 이들의 아픔이 결코 우연이 아니며, 그 속에 하나님의 놀라운 계획이 숨겨져 있기 때문입니다. 오늘 말씀을 통해 우리 삶의 고난 속에 감추어진 하나님의 섭리를 발견하시기 바랍니다.</p>
+                </div>
+            </section>
+
+            <!-- II. 본문 배경 -->
+            <section>
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-stone-400 pl-4 mb-6" data-key="section2Title">
+                    II. 본문 배경과 엇갈린 현실
+                </h2>
+                <div class="text-lg text-stone-700 space-y-6 text-justify" data-key="section2Body">
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900 mb-2">1. 시대적 어둠: 헤롯 왕 때</h3>
+                        <p>본문 5절은 "유대 왕 헤롯 때에"라고 시작합니다. 역사적으로 헤롯 대왕의 통치기는 암울했습니다. 그는 로마의 권력을 등에 업고 유대인을 억압했으며, 잔혹한 정치를 펼쳤습니다. 영적으로 캄캄한 암흑기였습니다. 그 어둠 속에서 하나님은 한 줄기 빛을 준비하고 계셨는데, 그 통로가 바로 사가랴와 엘리사벳이었습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900 mb-2">2. 이해할 수 없는 모순: 의인의 고난</h3>
+                        <p>사가랴는 제사장 가문이었고, 엘리사벳 역시 아론의 후손이었습니다. 성경은 이들을 가리켜 "하나님 앞에 의인"이라고 선포합니다.</p>
+                        <p class="bg-stone-50 p-4 rounded-lg border-l-2 border-stone-300 my-4 italic text-stone-600">
+                            여기서 <strong>'의인'</strong>은 하나님과의 언약 관계를 충실히 지키는 자를, <strong>'흠이 없다'</strong>는 남들이 비난할 거리가 없다는 뜻입니다. 그들은 사람의 눈을 의식해서가 아니라, 하나님 앞에서 진실하게 율법과 계명을 지키며 살아온 사람들입니다.
+                        </p>
+                        <p>그런데 7절에는 충격적인 반전이 있습니다. "그들은 의인이었다. (그러나) 자식이 없었다." 당시 유대 사회에서 자녀가 없다는 것은 단순한 결핍이 아니었습니다. 그것은 '하나님의 축복이 끊어졌다'고 여겨졌으며, 사람들 사이에서 큰 수치였습니다.</p>
+                        <p>더 절망적인 것은 "두 사람의 나이가 많더라"는 것입니다. 이것은 의학적 사형 선고입니다. 인간적인 소망이 완전히 사라진 상태, 이것이 사가랴 가정의 현실이었습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- III. 통찰 -->
+            <section>
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-stone-400 pl-4 mb-6" data-key="section3Title">
+                    III. 본문의 깊은 통찰: 믿음이란 무엇인가
+                </h2>
+                <div class="text-lg text-stone-700 space-y-4 text-justify" data-key="section3Body">
+                    <p>하지만 여기서 우리는 놀라운 영적 사실 하나를 발견합니다. 6절에서 그들이 주의 계명과 규례대로 <strong>"행하더라"</strong>에 쓰인 동사는 <strong>'미완료 시제'</strong>입니다.</p>
+                    <p>이것은 과거의 어느 한순간만 잘했다는 뜻이 아닙니다. <strong>"계속해서, 끊임없이, 습관적으로 걷고 있었다"</strong>는 뜻입니다. 아이가 생기지 않아도, 기도가 응답되지 않아도, 사람들의 시선이 따가워도, 그들은 멈추지 않고 묵묵히 제사장의 직무를 수행하며 하나님 앞에 의롭게 살았습니다.</p>
+                    <p>이것이 진짜 믿음입니다. 조건이 좋아서 감사하는 것은 누구나 합니다. 그러나 내 인생의 겨울이 찾아오고, 기도의 응답이 침묵할 때에도 변함없이 자리를 지키는 것, 이것이 사가랴와 엘리사벳이 보여준 빛나는 믿음입니다.</p>
+                </div>
+            </section>
+
+            <!-- IV. 영적 해석 -->
+            <section>
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-6" data-key="section4Title">
+                    IV. 영적 해석: 고난의 재해석 "우연은 없다"
+                </h2>
+                <div class="text-lg text-stone-700 space-y-6 text-justify" data-key="section4Body">
+                    <p class="font-medium text-xl text-center text-stone-900 py-4">사랑하는 성도 여러분, 왜 하나님은 이토록 신실한 의인에게 침묵하셨을까요? 분명히 말씀드립니다. <span class="inline-block border-b-2 border-amber-500 pb-1">"우연은 없습니다."</span></p>
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900 mb-2">1. 위대한 탄생을 위한 준비</h3>
+                        <p>만약 그들이 젊은 시절 남들처럼 쉽게 아이를 낳았다면, 그 아이는 그저 평범한 제사장이 되었을지도 모릅니다. 하지만 하나님은 이 가정을 통해 여자가 낳은 자 중에 가장 큰 자, 예수님의 길을 예비할 <strong>'세례 요한'</strong>을 보내기로 작정하셨습니다. 한나의 불임이 사무엘을 낳게 했듯, 사가랴 부부의 긴 기다림은 그들을 더 순수하고 단단한 믿음의 그릇으로 빚어가는 하나님의 시간이었습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900 mb-2">2. 예화: 고난은 변장된 축복</h3>
+                        <p>우리에게 잘 알려진 영화 '7번방의 선물'의 시나리오 작가 김황성 님을 아십니까? 그는 과거 친구에게 사기를 당해 전 재산을 잃고, 불법 비디오 일에 연루되어 범죄자가 될 뻔했습니다. 너무 괴로워 자살 기도까지 했던 밑바닥 인생이었습니다. 하지만 그 처절한 고난 속에서 주님을 만났습니다. 그리고 자신의 뼈아픈 경험과 아픔을 글로 승화시켰을 때, 수많은 사람의 심금을 울리는 작가가 되었습니다. 그의 고난은 우연이 아니었습니다.</p>
+                        <p class="mt-4">또한 박상배 선교사님 부부가 있습니다. 결혼 15년 차가 되도록 아이가 없었습니다. 의학적으로 불가능 판정을 받았습니다. 두 분은 결단했습니다. "자식 없이 살 바에야, 내 남은 생명을 주님께 드리자." 그렇게 선교지로 떠나 뼈를 묻기로 작정했습니다. 그런데 놀랍게도, 모든 것을 내려놓고 떠난 선교지에서 하나님은 기적처럼 태의 문을 여셨습니다. 불임이라는 고난이 없었다면 그들은 선교지로 떠나지 않았을지도 모릅니다. 고난이 사명의 길을 열어준 것입니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900 mb-2">3. 하나님의 타이밍</h3>
+                        <p>사가랴의 기도는 땅에 떨어진 것이 아니었습니다. 하나님은 "너의 간구함이 들린지라"라고 말씀하십니다. 하나님은 듣고 계셨습니다. 다만, <strong>'예수님이 오실 때'</strong>와 <strong>'세례 요한이 태어날 때'</strong>를 정확히 맞추기 위해, 하나님의 시간표가 찰 때까지 응답을 '유보'하고 계셨던 것입니다. 우리의 기도가 더디다면, 그것은 거절이 아니라 하나님의 가장 완벽한 타이밍을 기다리는 중임을 믿으시기 바랍니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- V. 결론 -->
+            <section>
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-stone-400 pl-4 mb-6" data-key="section5Title">
+                    V. 결론: 빛나는 믿음의 사람이 되십시오
+                </h2>
+                <div class="text-lg text-stone-700 space-y-4 text-justify" data-key="section5Body">
+                    <p>말씀을 맺겠습니다. 오늘 우리 중에도 사가랴와 엘리사벳처럼 "하나님, 저는 주님 뜻대로 살려고 몸부림치는데 왜 제 삶의 문제는 해결되지 않습니까?"라고 묻는 분이 계실지 모릅니다. 그러나 기억하십시오. <strong>우연은 없습니다.</strong> 여러분의 아픔, 결핍, 멈춰버린 것 같은 이 시간조차 하나님의 섭리 안에 있습니다. 하나님은 지금 여러분을 '빛나는 믿음의 사람'으로 빚어가고 계십니다. 사가랴처럼 끝까지 자리를 지키십시오. 묵묵히 주의 계명과 규례를 지키며 걸어가십시오.</p>
+                </div>
+            </section>
+
+            <!-- VI. 적용과 실천 -->
+            <section class="bg-amber-50 p-8 rounded-xl border border-amber-100 print-break">
+                <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2" data-key="section6Title">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-amber-600"></i>
+                    VI. 삶의 적용과 기도
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 왼쪽 컬럼 -->
+                    <div class="space-y-6">
+                        <div data-key="prayerSelf">
+                            <h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-stone-500"></i> 나를 위한 기도</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">1.</span><span>침묵의 시간에도 하나님의 섭리를 신뢰하며, 낙심하지 않고 기도의 자리를 지키게 하소서.</span></li>
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">2.</span><span>당장 눈앞에 열매가 보이지 않아도, 오늘 내가 감당해야 할 직분과 사명을 성실히 감당하게 하소서.</span></li>
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">3.</span><span>나의 결핍과 아픔이 장차 누군가를 위로하고 살리는 하나님의 도구로 쓰임 받게 하소서.</span></li>
+                            </ul>
+                        </div>
+                        <div data-key="prayerOthers">
+                            <h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-stone-500"></i> 이웃과 열방을 위한 중보기도</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">1.</span><span>오랜 질병과 경제적 어려움으로 지쳐있는 성도들이 하나님의 때를 기다릴 새 힘을 얻게 하소서.</span></li>
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">2.</span><span>이 시대의 어둠 속에서도 다음 세대를 깨울 '세례 요한' 같은 믿음의 용사들이 우리 교회와 가정에서 일어나게 하소서.</span></li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-amber-200" data-key="prayerMigrant">
+                            <h4 class="text-sm font-bold text-stone-600 mb-2 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> 이주민과 다문화 가정을 위하여</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">1.</span><span>낯선 땅에서 살아가는 이주민들이 하나님의 사랑 안에서 참된 위로와 평안을 얻고, 외로움을 이길 힘을 주소서.</span></li>
+                                <li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">2.</span><span>우리 교회가 이들을 그리스도의 사랑으로 환대하며, 다문화 가정의 자녀들이 믿음 안에서 다음 세대의 리더로 귀하게 쓰임 받게 하소서.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 오른쪽 컬럼 -->
+                    <div class="flex flex-col h-full">
+                        <div data-key="weeklyPlan">
+                            <h3 class="text-lg font-bold text-stone-900 mb-4 flex items-center gap-2"><i data-lucide="calendar-check" class="w-5 h-5 text-stone-500"></i> 요일별 실천 플랜: "섭리를 믿는 자의 일주일"</h3>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-red-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-red-600 uppercase">Sunday (주일)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">예배/선포</span></div><p class="text-sm text-stone-800 font-medium">"내 삶의 고난은 우연이 아니다"라고 예배 시간에 믿음으로 선포하기.</p></div>
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Monday (월)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">직장/일상</span></div><p class="text-sm text-stone-800 font-medium">사가랴처럼 반복되는 업무를 성실히 수행하기. (작은 일에 충성하기)</p></div>
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Tuesday (화)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">대화/언어</span></div><p class="text-sm text-stone-800 font-medium">대화 중에 불평이 나오려 할 때, "하나님의 때가 있다"는 말로 바꾸어 말하기.</p></div>
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Wednesday (수)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">가정</span></div><p class="text-sm text-stone-800 font-medium">가족의 부족함이나 결핍을 지적하는 대신, 그 문제를 놓고 10분간 침묵 기도하기.</p></div>
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thursday (목)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">친구/관계</span></div><p class="text-sm text-stone-800 font-medium">기다림 속에 있는 친구에게 커피 쿠폰이나 문자로 "함께 기도하고 있어"라고 격려하기.</p></div>
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Friday (금)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">고난/인내</span></div><p class="text-sm text-stone-800 font-medium">한 주간 뜻대로 안 된 일들을 적어보고, "이 또한 섭리 안에 있음"을 고백하며 감사하기.</p></div>
+                                <div class="bg-white p-3 rounded-lg border-l-4 border-blue-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-blue-600 uppercase">Saturday (토)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">준비/기대</span></div><p class="text-sm text-stone-800 font-medium">내일 드릴 예배를 위해 마음을 정돈하고, 헌금과 복장을 미리 준비하기.</p></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 text-center bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                             <p class="text-lg font-bold text-amber-800" data-key="finalQuote">
+                                "우연은 없습니다.<br>모든 것은 하나님의 섭리 안에 있습니다."
+                            </p>
+                            <p class="text-sm font-medium mt-2 text-stone-600" data-key="benediction">
+                                이 믿음으로 승리하는 저와 여러분 되시기를<br>주님의 이름으로 축원합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 메시지 공유하기 -->
+            <section class="border-t border-stone-200 pt-10 pb-4 no-print">
+                <div class="bg-stone-900 rounded-2xl p-8 text-center text-stone-300">
+                    <h3 class="text-xl font-bold text-white mb-2" data-key="shareTitle">은혜의 말씀 나누기</h3>
+                    <p class="mb-6 text-stone-400" data-key="shareDesc">이 메시지가 위로가 필요한 분들에게 전달되도록 공유해주세요.</p>
+                    
+                    <div class="flex justify-center gap-4">
+                        <button onclick="shareContent()" class="flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <i data-lucide="share-2" class="w-5 h-5"></i>
+                            <span data-key="shareBtn">SNS 공유하기</span>
+                        </button>
+                        <button onclick="copyUrl()" class="flex items-center gap-2 px-6 py-3 bg-stone-700 hover:bg-stone-600 text-white font-medium rounded-full transition-all">
+                            <i data-lucide="link" class="w-5 h-5"></i>
+                            <span data-key="copyBtn">링크 복사</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+        <!-- 푸터 -->
+        <footer class="bg-stone-900 text-stone-400 py-8 text-center text-sm border-t border-stone-800">
+            <p data-key="footerText">&copy; 엘림G선교회 한진준목사 (010-2083-3106). All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        // 데이터 (KO, EN, VI, ID = Full Version / Others = Summary)
+        const resources = {
+            // [한국어 - 전문]
+            ko: {
+                printBtn: "인쇄하기",
+                headerLabel: "Sermon Message",
+                titleMain: "침묵 속에 담긴 하나님의 섭리,",
+                titleSub: "\"우연은 없다\"",
+                scriptureRef: "누가복음 1장 5-7절",
+                scriptureTitle: "본문 말씀 (누가복음 1:5-7)",
+                verse5: "유대 왕 헤롯 때에 아비야 반열에 제사장 한 사람이 있었으니 이름은 사가랴요 그의 아내는 아론의 자손이니 이름은 엘리사벳이라",
+                verse6: "이 두 사람이 하나님 앞에 의인이니 주의 모든 계명과 규례대로 흠이 없이 행하더라",
+                verse7: "엘리사벳이 잉태를 못하므로 그들에게 자식이 없고 두 사람의 나이가 많더라",
+                section1Title: "I. 서론: 모순적인 현실 앞에서",
+                section1Body: `<p>사랑하는 성도 여러분, 주님이 주시는 평안과 축복이 여러분의 삶에 가득하기를 바랍니다. 오늘 우리는 누가복음의 서막을 여는 아주 특별한 부부, 사가랴와 엘리사벳을 만납니다.</p><p>우리는 흔히 신앙생활을 잘하면 만사가 형통하고, 자녀가 잘 되고, 건강해야 한다고 생각합니다. 하나님께서 의인에게 복을 주시는 것은 당연한 이치이기 때문입니다. 하지만 우리 삶의 현장에는 설명할 수 없는 모순이 존재합니다. 정말 법 없이도 살 사람, 누구보다 하나님을 사랑하는 사람인데, 지독한 고난과 결핍 속에 있는 경우를 봅니다.</p><p>오늘 본문이 바로 그 지점을 다루고 있습니다. 누가는 예수님의 탄생이라는 거대한 복음의 서막을 알리기에 앞서, 한 늙은 부부의 '결핍'과 '아픔'을 먼저 조명합니다. 왜일까요? 이들의 아픔이 결코 우연이 아니며, 그 속에 하나님의 놀라운 계획이 숨겨져 있기 때문입니다. 오늘 말씀을 통해 우리 삶의 고난 속에 감추어진 하나님의 섭리를 발견하시기 바랍니다.</p>`,
+                section2Title: "II. 본문 배경과 엇갈린 현실",
+                section2Body: `<div><h3 class="text-xl font-bold text-stone-900 mb-2">1. 시대적 어둠: 헤롯 왕 때</h3><p>본문 5절은 "유대 왕 헤롯 때에"라고 시작합니다. 역사적으로 헤롯 대왕의 통치기는 암울했습니다. 그는 로마의 권력을 등에 업고 유대인을 억압했으며, 잔혹한 정치를 펼쳤습니다. 영적으로 캄캄한 암흑기였습니다. 그 어둠 속에서 하나님은 한 줄기 빛을 준비하고 계셨는데, 그 통로가 바로 사가랴와 엘리사벳이었습니다.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. 이해할 수 없는 모순: 의인의 고난</h3><p>사가랴는 제사장 가문이었고, 엘리사벳 역시 아론의 후손이었습니다. 성경은 이들을 가리켜 "하나님 앞에 의인"이라고 선포합니다.</p><p class="bg-stone-50 p-4 rounded-lg border-l-2 border-stone-300 my-4 italic text-stone-600">여기서 <strong>'의인'</strong>은 하나님과의 언약 관계를 충실히 지키는 자를, <strong>'흠이 없다'</strong>는 남들이 비난할 거리가 없다는 뜻입니다. 그들은 사람의 눈을 의식해서가 아니라, 하나님 앞에서 진실하게 율법과 계명을 지키며 살아온 사람들입니다.</p><p>그런데 7절에는 충격적인 반전이 있습니다. "그들은 의인이었다. (그러나) 자식이 없었다." 당시 유대 사회에서 자녀가 없다는 것은 단순한 결핍이 아니었습니다. 그것은 '하나님의 축복이 끊어졌다'고 여겨졌으며, 사람들 사이에서 큰 수치였습니다.</p><p>더 절망적인 것은 "두 사람의 나이가 많더라"는 것입니다. 이것은 의학적 사형 선고입니다. 인간적인 소망이 완전히 사라진 상태, 이것이 사가랴 가정의 현실이었습니다.</p></div>`,
+                section3Title: "III. 본문의 깊은 통찰: 믿음이란 무엇인가",
+                section3Body: `<p>하지만 여기서 우리는 놀라운 영적 사실 하나를 발견합니다. 6절에서 그들이 주의 계명과 규례대로 <strong>"행하더라"</strong>에 쓰인 동사는 <strong>'미완료 시제'</strong>입니다.</p><p>이것은 과거의 어느 한순간만 잘했다는 뜻이 아닙니다. <strong>"계속해서, 끊임없이, 습관적으로 걷고 있었다"</strong>는 뜻입니다. 아이가 생기지 않아도, 기도가 응답되지 않아도, 사람들의 시선이 따가워도, 그들은 멈추지 않고 묵묵히 제사장의 직무를 수행하며 하나님 앞에 의롭게 살았습니다.</p><p>이것이 진짜 믿음입니다. 조건이 좋아서 감사하는 것은 누구나 합니다. 그러나 내 인생의 겨울이 찾아오고, 기도의 응답이 침묵할 때에도 변함없이 자리를 지키는 것, 이것이 사가랴와 엘리사벳이 보여준 빛나는 믿음입니다.</p>`,
+                section4Title: "IV. 영적 해석: 고난의 재해석 \"우연은 없다\"",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4">사랑하는 성도 여러분, 왜 하나님은 이토록 신실한 의인에게 침묵하셨을까요? 분명히 말씀드립니다. <span class="inline-block border-b-2 border-amber-500 pb-1">"우연은 없습니다."</span></p><div><h3 class="text-xl font-bold text-stone-900 mb-2">1. 위대한 탄생을 위한 준비</h3><p>만약 그들이 젊은 시절 남들처럼 쉽게 아이를 낳았다면, 그 아이는 그저 평범한 제사장이 되었을지도 모릅니다. 하지만 하나님은 이 가정을 통해 여자가 낳은 자 중에 가장 큰 자, 예수님의 길을 예비할 <strong>'세례 요한'</strong>을 보내기로 작정하셨습니다. 한나의 불임이 사무엘을 낳게 했듯, 사가랴 부부의 긴 기다림은 그들을 더 순수하고 단단한 믿음의 그릇으로 빚어가는 하나님의 시간이었습니다.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. 예화: 고난은 변장된 축복</h3><p>우리에게 잘 알려진 영화 '7번방의 선물'의 시나리오 작가 김황성 님을 아십니까? 그는 과거 친구에게 사기를 당해 전 재산을 잃고, 불법 비디오 일에 연루되어 범죄자가 될 뻔했습니다. 너무 괴로워 자살 기도까지 했던 밑바닥 인생이었습니다. 하지만 그 처절한 고난 속에서 주님을 만났습니다. 그리고 자신의 뼈아픈 경험과 아픔을 글로 승화시켰을 때, 수많은 사람의 심금을 울리는 작가가 되었습니다. 그의 고난은 우연이 아니었습니다.</p><p class="mt-4">또한 박상배 선교사님 부부가 있습니다. 결혼 15년 차가 되도록 아이가 없었습니다. 의학적으로 불가능 판정을 받았습니다. 두 분은 결단했습니다. "자식 없이 살 바에야, 내 남은 생명을 주님께 드리자." 그렇게 선교지로 떠나 뼈를 묻기로 작정했습니다. 그런데 놀랍게도, 모든 것을 내려놓고 떠난 선교지에서 하나님은 기적처럼 태의 문을 여셨습니다. 불임이라는 고난이 없었다면 그들은 선교지로 떠나지 않았을지도 모릅니다. 고난이 사명의 길을 열어준 것입니다.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">3. 하나님의 타이밍</h3><p>사가랴의 기도는 땅에 떨어진 것이 아니었습니다. 하나님은 "너의 간구함이 들린지라"라고 말씀하십니다. 하나님은 듣고 계셨습니다. 다만, <strong>'예수님이 오실 때'</strong>와 <strong>'세례 요한이 태어날 때'</strong>를 정확히 맞추기 위해, 하나님의 시간표가 찰 때까지 응답을 '유보'하고 계셨던 것입니다. 우리의 기도가 더디다면, 그것은 거절이 아니라 하나님의 가장 완벽한 타이밍을 기다리는 중임을 믿으시기 바랍니다.</p></div>`,
+                section5Title: "V. 결론: 빛나는 믿음의 사람이 되십시오",
+                section5Body: `<p>말씀을 맺겠습니다. 오늘 우리 중에도 사가랴와 엘리사벳처럼 "하나님, 저는 주님 뜻대로 살려고 몸부림치는데 왜 제 삶의 문제는 해결되지 않습니까?"라고 묻는 분이 계실지 모릅니다. 그러나 기억하십시오. <strong>우연은 없습니다.</strong> 여러분의 아픔, 결핍, 멈춰버린 것 같은 이 시간조차 하나님의 섭리 안에 있습니다. 하나님은 지금 여러분을 '빛나는 믿음의 사람'으로 빚어가고 계십니다. 사가랴처럼 끝까지 자리를 지키십시오. 묵묵히 주의 계명과 규례를 지키며 걸어가십시오.</p>`,
+                section6Title: "VI. 삶의 적용과 기도",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-stone-500"></i> 나를 위한 기도</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">1.</span><span>침묵의 시간에도 하나님의 섭리를 신뢰하며, 낙심하지 않고 기도의 자리를 지키게 하소서.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">2.</span><span>당장 눈앞에 열매가 보이지 않아도, 오늘 내가 감당해야 할 직분과 사명을 성실히 감당하게 하소서.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">3.</span><span>나의 결핍과 아픔이 장차 누군가를 위로하고 살리는 하나님의 도구로 쓰임 받게 하소서.</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-stone-500"></i> 이웃과 열방을 위한 중보기도</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">1.</span><span>오랜 질병과 경제적 어려움으로 지쳐있는 성도들이 하나님의 때를 기다릴 새 힘을 얻게 하소서.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">2.</span><span>이 시대의 어둠 속에서도 다음 세대를 깨울 '세례 요한' 같은 믿음의 용사들이 우리 교회와 가정에서 일어나게 하소서.</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> 이주민과 다문화 가정을 위하여</h4><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">1.</span><span>낯선 땅에서 살아가는 이주민들이 하나님의 사랑 안에서 참된 위로와 평안을 얻고, 외로움을 이길 힘을 주소서.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">2.</span><span>우리 교회가 이들을 그리스도의 사랑으로 환대하며, 다문화 가정의 자녀들이 믿음 안에서 다음 세대의 리더로 귀하게 쓰임 받게 하소서.</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4 flex items-center gap-2"><i data-lucide="calendar-check" class="w-5 h-5 text-stone-500"></i> 요일별 실천 플랜: "섭리를 믿는 자의 일주일"</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-red-600 uppercase">Sunday (주일)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">예배/선포</span></div><p class="text-sm text-stone-800 font-medium">"내 삶의 고난은 우연이 아니다"라고 예배 시간에 믿음으로 선포하기.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Monday (월)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">직장/일상</span></div><p class="text-sm text-stone-800 font-medium">사가랴처럼 반복되는 업무를 성실히 수행하기. (작은 일에 충성하기)</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Tuesday (화)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">대화/언어</span></div><p class="text-sm text-stone-800 font-medium">대화 중에 불평이 나오려 할 때, "하나님의 때가 있다"는 말로 바꾸어 말하기.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Wednesday (수)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">가정</span></div><p class="text-sm text-stone-800 font-medium">가족의 부족함이나 결핍을 지적하는 대신, 그 문제를 놓고 10분간 침묵 기도하기.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thursday (목)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">친구/관계</span></div><p class="text-sm text-stone-800 font-medium">기다림 속에 있는 친구에게 커피 쿠폰이나 문자로 "함께 기도하고 있어"라고 격려하기.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Friday (금)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">고난/인내</span></div><p class="text-sm text-stone-800 font-medium">한 주간 뜻대로 안 된 일들을 적어보고, "이 또한 섭리 안에 있음"을 고백하며 감사하기.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-blue-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-blue-600 uppercase">Saturday (토)</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">준비/기대</span></div><p class="text-sm text-stone-800 font-medium">내일 드릴 예배를 위해 마음을 정돈하고, 헌금과 복장을 미리 준비하기.</p></div></div>`,
+                finalQuote: "\"우연은 없습니다.<br>모든 것은 하나님의 섭리 안에 있습니다.\"",
+                benediction: "이 믿음으로 승리하는 저와 여러분 되시기를<br>주님의 이름으로 축원합니다.",
+                shareTitle: "은혜의 말씀 나누기",
+                shareDesc: "이 메시지가 위로가 필요한 분들에게 전달되도록 공유해주세요.",
+                shareBtn: "SNS 공유하기",
+                copyBtn: "링크 복사",
+                footerText: "&copy; 엘림G선교회 한진준목사 (010-2083-3106). All rights reserved."
+            },
+
+            // [English - Full Version]
+            en: {
+                printBtn: "Print",
+                headerLabel: "Sermon Message",
+                titleMain: "God's Providence in Silence,",
+                titleSub: "\"There are no Coincidences\"",
+                scriptureRef: "Luke 1:5-7",
+                scriptureTitle: "Scripture (Luke 1:5-7)",
+                verse5: "In the time of Herod king of Judea there was a priest named Zechariah, who belonged to the priestly division of Abijah; his wife Elizabeth was also a descendant of Aaron.",
+                verse6: "Both of them were righteous in the sight of God, observing all the Lord’s commands and decrees blamelessly.",
+                verse7: "But they were childless because Elizabeth was not able to conceive, and they were both very old.",
+                section1Title: "I. Introduction: Facing a Contradictory Reality",
+                section1Body: `<p>Beloved congregation, may the peace and blessings of the Lord be upon you. Today, we meet a very special couple, Zechariah and Elizabeth, who open the prelude to the Gospel of Luke.</p><p>We often think that if we live a faithful life, everything will go well, our children will prosper, and we will be healthy. This is because it is natural for God to bless the righteous. However, in our lives, inexplicable contradictions exist. We see people who love God deeply yet suffer from severe hardships and lack.</p><p>Today's passage addresses this very point. Before announcing the grand prelude of Jesus' birth, Luke first highlights the 'lack' and 'pain' of an elderly couple. Why? Because their pain is not a coincidence, and a surprising plan of God is hidden within it. Through today's message, I hope you discover God's providence hidden within the suffering of your life.</p>`,
+                section2Title: "II. Historical Background and Reality",
+                section2Body: `<div><h3 class="text-xl font-bold text-stone-900 mb-2">1. Times of Darkness: In the days of Herod</h3><p>Verse 5 begins with "In the time of Herod king of Judea." Historically, Herod's reign was dark. He oppressed the Jews backed by Roman power and practiced ruthless politics. It was a time of spiritual darkness. In that darkness, God was preparing a ray of light, and the channel was Zechariah and Elizabeth.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. The Suffering of the Righteous</h3><p>Zechariah was from the priestly division of Abijah, and Elizabeth was a descendant of Aaron. The Bible declares them "righteous in the sight of God." <strong>'Righteous'</strong> here means keeping the covenant relationship with God faithfully, not just morally good. <strong>'Blameless'</strong> means there is nothing for others to criticize. They lived faithfully before God, not for the eyes of men.</p><p>But verse 7 contains a shocking reversal. "They were righteous. (But) they were childless." In Jewish society at that time, childlessness was considered a sign of God's disfavor and a great disgrace. A priest who blesses others had a barren home. People might have whispered, "Is there a hidden sin in that family?"</p><p>Even more desperate is the end of verse 7: "they were both very old." This is a medical death sentence. They waited not just for a year or two, but for decades. Human hope was completely gone. This was the reality of Zechariah's family.</p></div>`,
+                section3Title: "III. Deep Insight: What is Faith?",
+                section3Body: `<p>However, here we discover a surprising spiritual fact. In verse 6, the verb used for "observing" (walking) is in the <strong>'imperfect tense'</strong>.</p><p>This means they were <strong>"continually, constantly, habitually walking."</strong> Even when they were young and prayers were unanswered, even when they became middle-aged and people stared, and even now in their old age when all hope is gone, they did not stop serving God faithfully.</p><p>This is true faith. Anyone can give thanks when conditions are good. But keeping one's place even when the winter of life comes and prayers remain silent is the shining faith Zechariah and Elizabeth showed.</p>`,
+                section4Title: "IV. Spiritual Interpretation: Reinterpreting Suffering - \"No Coincidence\"",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4">Beloved saints, why did God remain silent to such righteous people? Master, and congregation, I tell you clearly: <span class="inline-block border-b-2 border-amber-500 pb-1">"There are no coincidences."</span></p><div><h3 class="text-xl font-bold text-stone-900 mb-2">1. Preparation for a Great Birth</h3><p>If they had children easily in their youth, the child might have been just an ordinary priest. But God decided to send <strong>John the Baptist</strong>, the greatest born of women, through this family to prepare the way for Jesus. Great figures are born through great labor pains. Just as Hannah's infertility led to the birth of Samuel, Zechariah's long waiting was God's time to mold them into pure vessels of faith.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. Illustration: Suffering is a Blessing in Disguise</h3><p>Do you know writer Kim Hwang-sung of the movie 'Miracle in Cell No. 7'? He was once swindled by a friend, lost everything, got involved in illegal work, and even attempted suicide. It was a rock-bottom life. However, he met the Lord in that desperate suffering. When he sublimated his painful experiences into writing, he became a writer who touched the hearts of many. His suffering was not a coincidence.</p><p class="mt-4">Also, consider Missionary Park Sang-bae and his wife. They were childless for 15 years. Medically impossible. They decided, "If we are to live without children, let's dedicate our lives to the Lord." They went to the mission field to bury their bones there. Surprisingly, in the mission field where they laid everything down, God opened the womb miraculously. Without the suffering of infertility, they might not have left for the mission field. Suffering opened the way for their mission.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">3. God's Timing</h3><p>Zechariah's prayer was not ignored. God said, "Your prayer has been heard." God was listening. He was withholding the answer until God's timetable was full, to perfectly match the coming of Jesus and the birth of John. If your prayer is delayed, believe that it is not a refusal, but God waiting for the perfect timing.</p></div>`,
+                section5Title: "V. Conclusion: Be a Person of Shining Faith",
+                section5Body: `<p>Let us conclude. Today, there may be some among us who ask like Zechariah and Elizabeth, "God, I struggle to live according to Your will, so why are my life's problems not solved?"</p><p>But remember. <strong>There are no coincidences.</strong> Even your pain, lack, and seemingly stalled time are within God's providence. God is molding you right now into a 'person of shining faith'. He desires faith like pure gold that trusts God Himself, even if He does not give what we want.</p><p>Just as God's work began when Zechariah and Elizabeth were old and hopeless, God's new work will begin right where your strength is gone. Keep your place until the end. Walk blamelessly in the Lord's commands. God will surely wipe away your tears and give you fruits of grace you never imagined.</p>`,
+                section6Title: "VI. Application and Prayer",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-stone-500"></i> Prayer for Myself</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">1.</span><span>Lord, help me trust Your providence even in silence, not to lose heart, and keep my place of prayer.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">2.</span><span>Help me faithfully fulfill my duties and mission today even if I don't see fruit immediately.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">3.</span><span>May my lack and pain be used as God's instrument to comfort and save others in the future.</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-stone-500"></i> Intercessory Prayer</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">1.</span><span>Give new strength to saints who are weary from long illnesses and financial difficulties to wait for God's time.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">2.</span><span>Raise up warriors of faith like John the Baptist in our church and families to awaken the next generation in this dark age.</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> For Migrants and Multicultural Families</h4><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">1.</span><span>Grant true comfort and peace to migrants living in a strange land within God's love, and strength to overcome loneliness.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">2.</span><span>May our church welcome them with the love of Christ, and may the children of multicultural families be used as leaders of the next generation in faith.</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4 flex items-center gap-2"><i data-lucide="calendar-check" class="w-5 h-5 text-stone-500"></i> Weekly Action Plan</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-red-600 uppercase">Sunday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Worship</span></div><p class="text-sm text-stone-800 font-medium">Proclaim in faith during worship: "My life's suffering is not a coincidence."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Monday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Work/Daily</span></div><p class="text-sm text-stone-800 font-medium">Perform repetitive tasks faithfully like Zechariah. (Faithful in small things)</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Tuesday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Speech</span></div><p class="text-sm text-stone-800 font-medium">When about to complain, change it to words of faith: "God has a timing."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Wednesday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Family</span></div><p class="text-sm text-stone-800 font-medium">Instead of pointing out family flaws, pray silently for 10 minutes about the issue.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thursday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Friendship</span></div><p class="text-sm text-stone-800 font-medium">Encourage a waiting friend with a coffee coupon or text: "I'm praying with you."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Friday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Patience</span></div><p class="text-sm text-stone-800 font-medium">Write down things that didn't go well this week and give thanks, confessing "This too is within Providence."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-blue-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-blue-600 uppercase">Saturday</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Preparation</span></div><p class="text-sm text-stone-800 font-medium">Prepare your heart, offering, and clothes for tomorrow's worship.</p></div></div>`,
+                finalQuote: "\"There are no coincidences.<br>Everything is within God's providence.\"",
+                benediction: "May you be victorious with this faith.<br>I bless you in the name of the Lord.",
+                shareTitle: "Share the Message",
+                shareDesc: "Share this message with those who need comfort.",
+                shareBtn: "Share",
+                copyBtn: "Copy Link",
+                footerText: "&copy; Elim G Mission, Pastor Jinjun Han (010-2083-3106). All rights reserved."
+            },
+
+            // [Vietnamese - Full Version]
+            vi: {
+                printBtn: "In ấn",
+                headerLabel: "Thông Điệp Bài Giảng",
+                titleMain: "Sự Quan Phòng của Đức Chúa Trời,",
+                titleSub: "\"Không Có Gì Là Ngẫu Nhiên\"",
+                scriptureRef: "Luca 1:5-7",
+                scriptureTitle: "Kinh Thánh (Luca 1:5-7)",
+                verse5: "Trong đời Hê-rốt, vua nước Giu-đê, có một thầy tế lễ thuộc ban A-bi-gia, tên là Sa-cha-ri; vợ người là Ê-li-sa-bét, thuộc dòng dõi A-rôn.",
+                verse6: "Cả hai đều là người công bình trước mặt Đức Chúa Trời, vâng giữ mọi điều răn và lễ nghi của Chúa một cách không chỗ trách được.",
+                verse7: "Nhưng họ không có con, vì Ê-li-sa-bét son sẻ, và cả hai đều đã cao tuổi.",
+                section1Title: "I. Lời mở đầu: Đối mặt với thực tế mâu thuẫn",
+                section1Body: `<p>Thưa quý tín hữu yêu dấu, cầu xin bình an và phước hạnh của Chúa ở cùng quý vị. Hôm nay, chúng ta gặp gỡ một cặp vợ chồng rất đặc biệt, Sa-cha-ri và Ê-li-sa-bét, những người mở đầu cho Tin Lành Luca.</p><p>Chúng ta thường nghĩ rằng nếu sống đời sống đức tin tốt, mọi sự sẽ hanh thông, con cái thành đạt và chúng ta sẽ khỏe mạnh. Điều này là bởi vì việc Đức Chúa Trời ban phước cho người công bình là điều đương nhiên. Tuy nhiên, trong cuộc sống thực tế của chúng ta, có những mâu thuẫn không thể giải thích được. Chúng ta thấy những người yêu mến Chúa sâu sắc nhưng lại phải chịu đựng những khó khăn và thiếu thốn nghiêm trọng.</p><p>Đoạn kinh thánh hôm nay đề cập đến chính điểm này. Trước khi công bố sự ra đời vĩ đại của Chúa Giê-xu, Luca trước hết làm nổi bật 'sự thiếu thốn' và 'nỗi đau' của một cặp vợ chồng già. Tại sao? Bởi vì nỗi đau của họ không phải là ngẫu nhiên, và một kế hoạch đáng kinh ngạc của Đức Chúa Trời đang ẩn giấu trong đó. Qua sứ điệp hôm nay, tôi hy vọng quý vị khám phá ra sự quan phòng của Đức Chúa Trời ẩn giấu trong những đau khổ của cuộc đời mình.</p>`,
+                section2Title: "II. Bối cảnh lịch sử và thực tế trớ trêu",
+                section2Body: `<div><h3 class="text-xl font-bold text-stone-900 mb-2">1. Thời kỳ đen tối: Trong đời vua Hê-rốt</h3><p>Câu 5 bắt đầu bằng "Trong đời Hê-rốt, vua nước Giu-đê." Về mặt lịch sử, triều đại của Hê-rốt là một thời kỳ đen tối. Ông ta áp bức người Do Thái dựa vào quyền lực của La Mã và thực hiện chính sách tàn bạo. Đó là một thời kỳ đen tối về mặt tâm linh. Trong bóng tối đó, Đức Chúa Trời đang chuẩn bị một tia sáng, và kênh dẫn đó chính là Sa-cha-ri và Ê-li-sa-bét.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. Nỗi khổ của người công bình</h3><p>Sa-cha-ri thuộc ban A-bi-gia, và Ê-li-sa-bét thuộc dòng dõi A-rôn. Kinh Thánh tuyên bố họ là "người công bình trước mặt Đức Chúa Trời." <strong>'Công bình'</strong> ở đây có nghĩa là giữ mối quan hệ giao ước với Đức Chúa Trời một cách trung tín. <strong>'Không chỗ trách được'</strong> có nghĩa là không có gì để người khác chỉ trích. Họ sống trung tín trước mặt Chúa, không phải để người đời nhìn thấy.</p><p>Nhưng câu 7 chứa đựng một sự đảo ngược gây sốc. "Họ là người công bình. (Nhưng) họ không có con." Trong xã hội Do Thái thời đó, không có con được coi là dấu hiệu Chúa không hài lòng và là một nỗi nhục lớn. Một thầy tế lễ chúc phước cho người khác lại có một gia đình son sẻ. Mọi người có thể đã thì thầm, "Liệu có tội lỗi nào ẩn giấu trong gia đình đó không?"</p><p>Tuyệt vọng hơn nữa là cuối câu 7: "cả hai đều đã cao tuổi." Đây là bản án tử hình về mặt y học. Họ đã chờ đợi không chỉ một hai năm, mà là hàng chục năm. Hy vọng của con người đã hoàn toàn biến mất.</p></div>`,
+                section3Title: "III. Cái nhìn sâu sắc: Đức tin là gì?",
+                section3Body: `<p>Tuy nhiên, ở đây chúng ta khám phá ra một sự thật thuộc linh đáng ngạc nhiên. Trong câu 6, động từ được sử dụng cho "vâng giữ" (bước đi) ở <strong>'thì chưa hoàn thành' (imperfect tense)</strong>.</p><p>Điều này có nghĩa là họ đã <strong>"tiếp tục, liên tục, theo thói quen bước đi."</strong> Ngay cả khi họ còn trẻ và những lời cầu nguyện không được đáp lời, ngay cả khi họ đã trung niên và mọi người nhìn chằm chằm, và ngay cả bây giờ khi đã già và mọi hy vọng đã tắt, họ vẫn không ngừng phục vụ Chúa một cách trung tín.</p><p>Đây là đức tin thật sự. Bất cứ ai cũng có thể tạ ơn khi điều kiện thuận lợi. Nhưng giữ vững vị trí của mình ngay cả khi mùa đông của cuộc đời ập đến và những lời cầu nguyện vẫn im lặng là đức tin sáng ngời mà Sa-cha-ri và Ê-li-sa-bét đã thể hiện.</p>`,
+                section4Title: "IV. Giải thích thuộc linh: Tái hiện nỗi đau - \"Không có ngẫu nhiên\"",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4">Thưa quý thánh đồ, tại sao Đức Chúa Trời lại im lặng với những người công bình như vậy? Thưa quý vị, tôi xin nói rõ: <span class="inline-block border-b-2 border-amber-500 pb-1">"Không có gì là ngẫu nhiên."</span></p><div><h3 class="text-xl font-bold text-stone-900 mb-2">1. Chuẩn bị cho sự ra đời vĩ đại</h3><p>Nếu họ có con dễ dàng khi còn trẻ, đứa trẻ đó có thể chỉ là một thầy tế lễ bình thường. Nhưng Đức Chúa Trời đã quyết định gửi <strong>Giăng Báp-tít</strong>, người vĩ đại nhất trong số những người do phụ nữ sinh ra, qua gia đình này để dọn đường cho Chúa Giê-xu. Những nhân vật vĩ đại được sinh ra qua những cơn đau chuyển dạ lớn. Cũng như sự son sẻ của An-ne dẫn đến sự ra đời của Sa-mu-ên, sự chờ đợi lâu dài của Sa-cha-ri là thời gian Đức Chúa Trời nhào nặn họ thành những chiếc bình đức tin tinh khiết.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. Minh họa: Khổ đau là phước hạnh trá hình</h3><p>Quý vị có biết nhà biên kịch Kim Hwang-sung của bộ phim 'Điều kỳ diệu ở phòng giam số 7' không? Ông từng bị bạn lừa gạt, mất hết tài sản, dính líu đến công việc phi pháp và thậm chí đã định tự tử. Đó là một cuộc đời chạm đáy. Tuy nhiên, ông đã gặp Chúa trong nỗi đau tuyệt vọng đó. Khi ông thăng hoa những trải nghiệm đau đớn của mình thành văn chương, ông đã trở thành một nhà văn chạm đến trái tim của nhiều người. Nỗi đau của ông không phải là ngẫu nhiên.</p><p class="mt-4">Cũng hãy xem xét Giáo sĩ Park Sang-bae và vợ. Họ không có con trong 15 năm. Về mặt y học là không thể. Họ quyết định, "Nếu chúng ta sống không có con, hãy dâng cuộc đời mình cho Chúa." Họ đến cánh đồng truyền giáo để chôn vùi xương cốt ở đó. Thật ngạc nhiên, tại cánh đồng truyền giáo nơi họ buông bỏ mọi thứ, Chúa đã mở tử cung một cách kỳ diệu. Nếu không có nỗi đau vô sinh, họ có thể đã không rời đi truyền giáo. Khổ đau đã mở đường cho sứ mệnh của họ.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">3. Thời điểm của Đức Chúa Trời</h3><p>Lời cầu nguyện của Sa-cha-ri không bị bỏ qua. Chúa phán, "Lời cầu nguyện của ngươi đã được nghe." Chúa đang lắng nghe. Ngài đang giữ lại câu trả lời cho đến khi thời gian biểu của Đức Chúa Trời đầy trọn, để khớp hoàn hảo với sự đến của Chúa Giê-xu và sự ra đời của Giăng. Nếu lời cầu nguyện của quý vị bị trì hoãn, hãy tin rằng đó không phải là sự từ chối, mà là Chúa đang chờ đợi thời điểm hoàn hảo.</p></div>`,
+                section5Title: "V. Kết luận: Hãy trở thành người có đức tin sáng ngời",
+                section5Body: `<p>Hãy kết luận. Hôm nay, có thể có một số người trong chúng ta hỏi giống như Sa-cha-ri và Ê-li-sa-bét, "Chúa ơi, con cố gắng sống theo ý muốn Ngài, vậy tại sao những vấn đề trong cuộc sống của con không được giải quyết?"</p><p>Nhưng hãy nhớ rằng. <strong>Không có gì là ngẫu nhiên.</strong> Ngay cả nỗi đau, sự thiếu thốn và thời gian dường như ngưng trệ của quý vị cũng nằm trong sự quan phòng của Đức Chúa Trời. Chúa đang nhào nặn quý vị ngay bây giờ thành một 'người có đức tin sáng ngời'. Ngài mong muốn đức tin như vàng ròng tin cậy chính Đức Chúa Trời, ngay cả khi Ngài không ban cho điều chúng ta muốn.</p><p>Cũng như công việc của Chúa bắt đầu khi Sa-cha-ri và Ê-li-sa-bét đã già và hết hy vọng, công việc mới của Chúa sẽ bắt đầu ngay tại nơi sức lực của quý vị đã cạn kiệt. Hãy giữ vững vị trí của mình cho đến cùng. Hãy bước đi không chỗ trách được trong các điều răn của Chúa. Chúa chắc chắn sẽ lau sạch nước mắt của quý vị và ban cho quý vị những trái ngọt ân điển mà quý vị chưa từng tưởng tượng.</p>`,
+                section6Title: "VI. Áp dụng và Cầu nguyện",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-stone-500"></i> Cầu nguyện cho bản thân</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">1.</span><span>Lạy Chúa, xin giúp con tin cậy vào sự quan phòng của Ngài ngay cả trong sự im lặng, không nản lòng và giữ vững vị trí cầu nguyện.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">2.</span><span>Xin giúp con trung tín hoàn thành nhiệm vụ và sứ mệnh ngày hôm nay ngay cả khi con không thấy kết quả ngay lập tức.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">3.</span><span>Nguyện sự thiếu thốn và nỗi đau của con được sử dụng như công cụ của Chúa để an ủi và cứu người khác trong tương lai.</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-stone-500"></i> Cầu thay</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">1.</span><span>Xin ban sức mới cho những thánh đồ đang mệt mỏi vì bệnh tật lâu dài và khó khăn tài chính để chờ đợi thời điểm của Chúa.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">2.</span><span>Xin dấy lên những chiến binh đức tin như Giăng Báp-tít trong hội thánh và gia đình chúng con để đánh thức thế hệ tiếp theo trong thời đại đen tối này.</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> Cho người di cư và gia đình đa văn hóa</h4><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">1.</span><span>Xin ban sự an ủi và bình an thật sự cho những người di cư đang sống ở đất khách trong tình yêu của Chúa, và sức mạnh để vượt qua sự cô đơn.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">2.</span><span>Nguyện hội thánh chúng con chào đón họ bằng tình yêu của Đấng Christ, và con cái của các gia đình đa văn hóa được sử dụng như những người lãnh đạo của thế hệ tiếp theo trong đức tin.</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4 flex items-center gap-2"><i data-lucide="calendar-check" class="w-5 h-5 text-stone-500"></i> Kế hoạch hành động tuần này</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-red-600 uppercase">Chủ Nhật</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Thờ phượng</span></div><p class="text-sm text-stone-800 font-medium">Tuyên xưng trong đức tin: "Nỗi khổ của tôi không phải là ngẫu nhiên."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thứ Hai</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Công việc</span></div><p class="text-sm text-stone-800 font-medium">Thực hiện các công việc lặp đi lặp lại một cách trung tín như Sa-cha-ri. (Trung tín trong việc nhỏ)</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thứ Ba</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Lời nói</span></div><p class="text-sm text-stone-800 font-medium">Khi định phàn nàn, hãy đổi thành lời đức tin: "Chúa có thời điểm của Ngài."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thứ Tư</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Gia đình</span></div><p class="text-sm text-stone-800 font-medium">Thay vì chỉ trích khuyết điểm của gia đình, hãy cầu nguyện thầm lặng 10 phút về vấn đề đó.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thứ Năm</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Bạn bè</span></div><p class="text-sm text-stone-800 font-medium">Khích lệ một người bạn đang chờ đợi bằng tin nhắn: "Tôi đang cầu nguyện cùng bạn."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Thứ Sáu</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Kiên nhẫn</span></div><p class="text-sm text-stone-800 font-medium">Viết ra những điều không suôn sẻ và tạ ơn, xưng nhận "Điều này cũng nằm trong sự quan phòng."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-blue-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-blue-600 uppercase">Thứ Bảy</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Chuẩn bị</span></div><p class="text-sm text-stone-800 font-medium">Chuẩn bị tấm lòng, tiền dâng và trang phục cho buổi thờ phượng ngày mai.</p></div></div>`,
+                finalQuote: "\"Không có gì là ngẫu nhiên.<br>Mọi sự đều nằm trong sự quan phòng của Chúa.\"",
+                benediction: "Cầu chúc quý vị chiến thắng với đức tin này.<br>Nhân danh Chúa.",
+                shareTitle: "Chia sẻ lời Chúa",
+                shareDesc: "Hãy chia sẻ thông điệp này với những người cần sự an ủi.",
+                shareBtn: "Chia sẻ",
+                copyBtn: "Sao chép liên kết",
+                footerText: "&copy; Mục sư Han Jin-jun (010-2083-3106), Elim G Mission. All rights reserved."
+            },
+
+            // [Indonesian - Full Version]
+            id: {
+                printBtn: "Cetak",
+                headerLabel: "Pesan Khotbah",
+                titleMain: "Penyelenggaraan Tuhan dalam Keheningan,",
+                titleSub: "\"Tidak Ada Kebetulan\"",
+                scriptureRef: "Lukas 1:5-7",
+                scriptureTitle: "Ayat Alkitab (Lukas 1:5-7)",
+                verse5: "Pada zaman Herodes, raja Yudea, adalah seorang imam yang bernama Zakharia dari rombongan Abia. Isterinya juga berasal dari keturunan Harun, namanya Elisabet.",
+                verse6: "Keduanya adalah benar di hadapan Allah dan hidup menurut segala perintah dan ketetapan Tuhan dengan tidak bercacat.",
+                verse7: "Tetapi mereka tidak mempunyai anak, sebab Elisabet mandul dan keduanya telah lanjut umurnya.",
+                section1Title: "I. Pendahuluan: Menghadapi Realitas yang Kontradiktif",
+                section1Body: `<p>Saudara-saudara yang terkasih, kiranya damai sejahtera dan berkat Tuhan menyertai Anda. Hari ini kita bertemu dengan pasangan yang sangat istimewa, Zakharia dan Elisabet, yang membuka babak baru dalam Injil Lukas.</p><p>Kita sering berpikir bahwa jika kita hidup dengan iman yang baik, segalanya akan berjalan lancar, anak-anak akan sukses, dan kita akan sehat. Ini karena wajar bagi Tuhan untuk memberkati orang benar. Namun, dalam kenyataan hidup kita, ada kontradiksi yang tak terjelaskan. Kita melihat orang-orang yang sangat mengasihi Tuhan namun menderita kesulitan dan kekurangan yang parah.</p><p>Bacaan hari ini membahas poin tersebut. Sebelum mengumumkan kelahiran Yesus yang agung, Lukas terlebih dahulu menyoroti 'kekurangan' dan 'rasa sakit' dari pasangan tua ini. Mengapa? Karena rasa sakit mereka bukanlah kebetulan, dan rencana Tuhan yang luar biasa tersembunyi di dalamnya. Melalui pesan hari ini, saya berharap Anda menemukan penyelenggaraan Tuhan yang tersembunyi dalam penderitaan hidup Anda.</p>`,
+                section2Title: "II. Latar Belakang Sejarah dan Realitas yang Ironis",
+                section2Body: `<div><h3 class="text-xl font-bold text-stone-900 mb-2">1. Masa Kegelapan: Di Zaman Raja Herodes</h3><p>Ayat 5 dimulai dengan "Pada zaman Herodes, raja Yudea." Secara historis, pemerintahan Herodes adalah masa kegelapan. Dia menindas orang Yahudi dengan dukungan kekuatan Romawi dan menjalankan politik yang kejam. Itu adalah masa kegelapan rohani. Dalam kegelapan itu, Tuhan sedang mempersiapkan seberkas cahaya, dan salurannya adalah Zakharia dan Elisabet.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. Penderitaan Orang Benar</h3><p>Zakharia berasal dari rombongan Abia, dan Elisabet adalah keturunan Harun. Alkitab menyatakan mereka "benar di hadapan Allah." <strong>'Benar'</strong> di sini berarti menjaga hubungan perjanjian dengan Tuhan dengan setia, bukan sekadar bermoral baik. <strong>'Tidak bercacat'</strong> berarti tidak ada yang bisa dikritik orang lain. Mereka hidup setia di hadapan Tuhan, bukan untuk dilihat orang.</p><p>Namun ayat 7 mengandung pembalikan yang mengejutkan. "Mereka benar. (Tetapi) mereka tidak punya anak." Dalam masyarakat Yahudi pada masa itu, tidak punya anak dianggap sebagai tanda ketidaksenangan Tuhan dan aib besar. Seorang imam yang memberkati orang lain memiliki rumah tangga yang mandul. Orang-orang mungkin berbisik, "Apakah ada dosa tersembunyi dalam keluarga itu?"</p><p>Yang lebih memilukan adalah akhir ayat 7: "keduanya telah lanjut umurnya." Ini adalah vonis mati secara medis. Mereka menunggu bukan hanya satu atau dua tahun, tetapi puluhan tahun. Harapan manusiawi telah sirna sama sekali.</p></div>`,
+                section3Title: "III. Wawasan Mendalam: Apa itu Iman?",
+                section3Body: `<p>Namun, di sini kita menemukan fakta rohani yang mengejutkan. Dalam ayat 6, kata kerja yang digunakan untuk "hidup menurut" (berjalan) adalah dalam <strong>'bentuk waktu yang belum selesai' (imperfect tense)</strong>.</p><p>Ini berarti mereka <strong>"terus-menerus, secara konstan, dan terbiasa berjalan."</strong> Bahkan ketika mereka masih muda dan doa-doa tidak dijawab, bahkan ketika mereka menjadi paruh baya dan orang-orang menatap, dan bahkan sekarang di masa tua mereka ketika semua harapan hilang, mereka tidak berhenti melayani Tuhan dengan setia.</p><p>Inilah iman yang sejati. Siapa pun bisa bersyukur ketika kondisi baik. Tetapi bertahan di tempat kita bahkan ketika musim dingin kehidupan datang dan doa-doa tetap diam adalah iman yang bersinar yang ditunjukkan Zakharia dan Elisabet.</p>`,
+                section4Title: "IV. Interpretasi Rohani: Menafsirkan Ulang Penderitaan - \"Tidak Ada Kebetulan\"",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4">Saudara-saudara yang kekasih, mengapa Tuhan tetap diam terhadap orang-orang benar seperti itu? Saya katakan dengan jelas: <span class="inline-block border-b-2 border-amber-500 pb-1">"Tidak ada kebetulan."</span></p><div><h3 class="text-xl font-bold text-stone-900 mb-2">1. Persiapan untuk Kelahiran Agung</h3><p>Jika mereka memiliki anak dengan mudah di masa muda, anak itu mungkin hanya akan menjadi imam biasa. Tetapi Tuhan memutuskan untuk mengirim <strong>Yohanes Pembaptis</strong>, yang terbesar dari antara mereka yang lahir dari perempuan, melalui keluarga ini untuk mempersiapkan jalan bagi Yesus. Tokoh-tokoh besar lahir melalui rasa sakit bersalin yang hebat. Sama seperti kemandulan Hana melahirkan Samuel, penantian panjang Zakharia adalah waktu Tuhan untuk membentuk mereka menjadi bejana iman yang murni.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">2. Ilustrasi: Penderitaan adalah Berkat yang Tersembunyi</h3><p>Apakah Anda tahu penulis Kim Hwang-sung dari film 'Miracle in Cell No. 7'? Dia pernah ditipu teman, kehilangan segalanya, terlibat pekerjaan ilegal, dan bahkan mencoba bunuh diri. Itu adalah kehidupan yang hancur. Namun, dia bertemu Tuhan dalam penderitaan yang putus asa itu. Ketika dia menyublimasikan pengalaman menyakitkannya ke dalam tulisan, dia menjadi penulis yang menyentuh hati banyak orang. Penderitaannya bukanlah kebetulan.</p><p class="mt-4">Juga, pertimbangkan Misionaris Park Sang-bae dan istrinya. Mereka tidak punya anak selama 15 tahun. Secara medis mustahil. Mereka memutuskan, "Jika kita hidup tanpa anak, mari kita persembahkan hidup kita kepada Tuhan." Mereka pergi ke ladang misi untuk mengubur tulang mereka di sana. Anehnya, di ladang misi tempat mereka melepaskan segalanya, Tuhan membuka kandungan secara ajaib. Tanpa penderitaan kemandulan, mereka mungkin tidak akan berangkat ke ladang misi. Penderitaan membuka jalan bagi misi mereka.</p></div><div><h3 class="text-xl font-bold text-stone-900 mb-2">3. Waktu Tuhan</h3><p>Doa Zakharia tidak diabaikan. Tuhan berkata, "Doamu telah didengar." Tuhan sedang mendengarkan. Dia menahan jawaban sampai jadwal Tuhan penuh, agar sesuai sempurna dengan kedatangan Yesus dan kelahiran Yohanes. Jika doa Anda tertunda, percayalah bahwa itu bukan penolakan, tetapi Tuhan sedang menunggu waktu yang sempurna.</p></div>`,
+                section5Title: "V. Kesimpulan: Jadilah Orang yang Beriman Cemerlang",
+                section5Body: `<p>Mari kita simpulkan. Hari ini, mungkin ada di antara kita yang bertanya seperti Zakharia dan Elisabet, "Tuhan, saya berjuang untuk hidup sesuai kehendak-Mu, jadi mengapa masalah hidup saya tidak terpecahkan?"</p><p>Tetapi ingatlah. <strong>Tidak ada kebetulan.</strong> Bahkan rasa sakit, kekurangan, dan waktu yang tampaknya macet ada dalam penyelenggaraan Tuhan. Tuhan sedang membentuk Anda sekarang menjadi 'orang yang beriman cemerlang'. Dia menginginkan iman seperti emas murni yang mempercayai Tuhan itu sendiri, bahkan jika Dia tidak memberikan apa yang kita inginkan.</p><p>Sama seperti pekerjaan Tuhan dimulai ketika Zakharia dan Elisabet sudah tua dan putus asa, pekerjaan baru Tuhan akan dimulai tepat di mana kekuatan Anda habis. Tetaplah di tempat Anda sampai akhir. Berjalanlah tanpa cacat dalam perintah Tuhan. Tuhan pasti akan menghapus air mata Anda dan memberi Anda buah kasih karunia yang tidak pernah Anda bayangkan.</p>`,
+                section6Title: "VI. Penerapan dan Doa",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-stone-500"></i> Doa untuk Diri Sendiri</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">1.</span><span>Tuhan, tolong aku mempercayai rencana-Mu bahkan dalam keheningan, tidak putus asa, dan tetap menjaga tempat doaku.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">2.</span><span>Bantu aku setia menyelesaikan tugas dan misiku hari ini bahkan jika aku tidak melihat buahnya segera.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-amber-600 font-bold">3.</span><span>Kiranya kekuranganku dan rasa sakitku digunakan sebagai alat Tuhan untuk menghibur dan menyelamatkan orang lain di masa depan.</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-stone-500"></i> Doa Syafaat</h3><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">1.</span><span>Berikan kekuatan baru bagi orang-orang kudus yang lelah karena penyakit jangka panjang dan kesulitan keuangan untuk menunggu waktu Tuhan.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-blue-600 font-bold">2.</span><span>Bangkitkanlah pejuang iman seperti Yohanes Pembaptis di gereja dan keluarga kami untuk membangunkan generasi berikutnya di zaman kegelapan ini.</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> Untuk Migran dan Keluarga Multikultural</h4><ul class="space-y-3"><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">1.</span><span>Berikan penghiburan dan kedamaian sejati bagi para migran yang tinggal di negeri asing dalam kasih Tuhan, dan kekuatan untuk mengatasi kesepian.</span></li><li class="flex items-start gap-2 text-stone-700 bg-white p-3 rounded-lg border border-stone-200 shadow-sm"><span class="text-green-600 font-bold">2.</span><span>Kiranya gereja kami menyambut mereka dengan kasih Kristus, dan anak-anak dari keluarga multikultural digunakan sebagai pemimpin generasi berikutnya dalam iman.</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4 flex items-center gap-2"><i data-lucide="calendar-check" class="w-5 h-5 text-stone-500"></i> Rencana Tindakan Mingguan</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-red-600 uppercase">Minggu</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Ibadah</span></div><p class="text-sm text-stone-800 font-medium">Proklamasi dalam iman: "Penderitaan hidupku bukan kebetulan."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Senin</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Kerja/Harian</span></div><p class="text-sm text-stone-800 font-medium">Lakukan tugas berulang dengan setia seperti Zakharia. (Setia dalam hal kecil)</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Selasa</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Ucapan</span></div><p class="text-sm text-stone-800 font-medium">Saat hendak mengeluh, ubah menjadi kata-kata iman: "Tuhan punya waktu-Nya."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Rabu</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Keluarga</span></div><p class="text-sm text-stone-800 font-medium">Alih-alih menunjuk kekurangan keluarga, berdoalah dalam diam selama 10 menit tentang masalah itu.</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Kamis</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Persahabatan</span></div><p class="text-sm text-stone-800 font-medium">Dorong teman yang sedang menunggu dengan kupon kopi atau pesan: "Aku berdoa bersamamu."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-amber-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-amber-600 uppercase">Jumat</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Kesabaran</span></div><p class="text-sm text-stone-800 font-medium">Tuliskan hal-hal yang tidak berjalan baik minggu ini dan bersyukur, mengakui "Ini juga dalam Penyelenggaraan."</p></div><div class="bg-white p-3 rounded-lg border-l-4 border-blue-500 shadow-sm"><div class="flex justify-between items-center mb-1"><span class="text-xs font-bold text-blue-600 uppercase">Sabtu</span><span class="text-xs text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">Persiapan</span></div><p class="text-sm text-stone-800 font-medium">Siapkan hati, persembahan, dan pakaian untuk ibadah besok.</p></div></div>`,
+                finalQuote: "\"Tidak ada kebetulan.<br>Segalanya ada dalam rencana Tuhan.\"",
+                benediction: "Saya memberkati Anda untuk menang dengan iman ini.<br>Dalam nama Tuhan.",
+                shareTitle: "Bagikan Pesan",
+                shareDesc: "Bagikan pesan ini kepada mereka yang butuh penghiburan.",
+                shareBtn: "Bagikan",
+                copyBtn: "Salin Tautan",
+                footerText: "&copy; Elim G Mission, Pastor Han Jin-jun (010-2083-3106). All rights reserved."
+            },
+
+            // [Thai - Summary]
+            th: {
+                printBtn: "พิมพ์",
+                headerLabel: "ข้อความเทศนา",
+                titleMain: "การจัดเตรียมของพระเจ้าในความเงียบ,",
+                titleSub: "\"ไม่มีคำว่าบังเอิญ\"",
+                scriptureRef: "ลูกา 1:5-7",
+                scriptureTitle: "พระคัมภีร์ (ลูกา 1:5-7)",
+                verse5: "ในรัชกาลเฮโรดกษัตริย์เมืองยูเดีย มีปุโรหิตคนหนึ่งชื่อเศคาริยาห์ อยู่ในเวรอาบียาห์ ภรรยาของเขาซึ่งมีชื่อว่าเอลีซาเบธ ก็สืบตระกูลมาจากอาโรน",
+                verse6: "เขาทั้งสองเป็นคนชอบธรรมต่อพระพักตร์พระเจ้า และดำเนินตามบัญญัติและกฎหมายทั้งปวงขององค์พระผู้เป็นเจ้าไม่มีที่ติเลย",
+                verse7: "แต่เขาไม่มีบุตร เพราะว่านางเอลีซาเบธเป็นหมัน และเขาทั้งสองก็ชรามากแล้ว",
+                section1Title: "I. บทนำ: เผชิญกับความเป็นจริงที่ขัดแย้ง",
+                section1Body: `<p>พี่น้องที่รัก ขอสันติสุขและพระพรของพระเจ้าอยู่กับท่าน วันนี้เราได้พบกับคู่สามีภรรยาพิเศษ เศคาริยาห์และเอลีซาเบธ</p><p>เรามักคิดว่าถ้าเราใช้ชีวิตอย่างซื่อสัตย์ ทุกอย่างจะราบรื่น แต่ในชีวิตจริงมีความขัดแย้งที่อธิบายไม่ได้ ผู้ที่รักพระเจ้ากลับต้องทนทุกข์</p><p>ความเจ็บปวดของพวกเขาไม่ใช่เรื่องบังเอิญ แต่มีแผนการที่น่าอัศจรรย์ของพระเจ้าซ่อนอยู่</p>`,
+                section2Title: "II. ภูมิหลังทางประวัติศาสตร์",
+                section2Body: `<p>พระคัมภีร์ประกาศว่าพวกเขา "ชอบธรรมต่อพระพักตร์พระเจ้า" แต่ข้อ 7 มีจุดพลิกผัน "พวกเขาชอบธรรม (แต่) ไม่มีบุตร" ในสังคมยิวสมัยนั้น การไม่มีบุตรถือเป็นความอัปยศ</p><p>ที่น่าสิ้นหวังยิ่งกว่าคือ "เขาทั้งสองชรามากแล้ว" ความหวังของมนุษย์หมดไปแล้ว</p>`,
+                section3Title: "III. ความลึกซึ้ง: ความเชื่อคืออะไร?",
+                section3Body: `<p>พวกเขายังคงรับใช้พระเจ้าอย่างซื่อสัตย์ นี่คือความเชื่อที่แท้จริง การรักษาหน้าที่แม้ในช่วงฤดูหนาวของชีวิตคือความเชื่อที่งดงาม</p>`,
+                section4Title: "IV. การตีความทางจิตวิญญาณ: \"ไม่มีเรื่องบังเอิญ\"",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4"><span class="inline-block border-b-2 border-amber-500 pb-1">"ไม่มีคำว่าบังเอิญ"</span></p><p>พระเจ้าตัดสินใจส่ง <strong>ยอห์นผู้ให้บัพติศมา</strong> ผ่านครอบครัวนี้ การรอคอยที่ยาวนานของพวกเขาคือเวลาที่พระเจ้าทรงปั้นพวกเขาให้เป็นภาชนะแห่งความเชื่อที่บริสุทธิ์</p>`,
+                section5Title: "V. สรุป",
+                section5Body: `<p>จงจำไว้ว่า <strong>ไม่มีคำว่าบังเอิญ</strong> แม้แต่ความเจ็บปวดของคุณก็อยู่ในการจัดเตรียมของพระเจ้า</p>`,
+                section6Title: "VI. การนำไปใช้และการอธิษฐาน",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3">คำอธิษฐานสำหรับตนเอง</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-amber-600 font-bold">1.</span><span>ขอพระเจ้าช่วยให้ข้าพระองค์วางใจในการจัดเตรียมของพระองค์แม้ในความเงียบ</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3">คำอธิษฐานเผื่อผู้อื่น</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-blue-600 font-bold">1.</span><span>ขอประทานกำลังใหม่แก่ธรรมิกชนที่เหนื่อยล้าจากโรคภัยและความยากลำบาก</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2">สำหรับผู้อพยพและครอบครัวหลากวัฒนธรรม</h4><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-green-600 font-bold">1.</span><span>ขอประทานการปลอบประโลมและสันติสุขที่แท้จริงแก่ผู้อพยพในต่างแดน</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4">แผนปฏิบัติการประจำสัปดาห์</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500"><span class="text-xs font-bold text-red-600">วันอาทิตย์</span><p class="text-sm text-stone-800">ประกาศด้วยความเชื่อ: "ความทุกข์ของฉันไม่ใช่เรื่องบังเอิญ"</p></div></div>`,
+                finalQuote: "\"ไม่มีคำว่าบังเอิญ<br>ทุกสิ่งอยู่ในการจัดเตรียมของพระเจ้า\"",
+                benediction: "ขอให้ท่านมีชัยชนะด้วยความเชื่อนี้<br>ในพระนามพระเจ้า",
+                shareTitle: "แบ่งปันพระวจนะ",
+                shareDesc: "แบ่งปันข้อความนี้กับผู้ที่ต้องการการปลอบโยน",
+                shareBtn: "แบ่งปัน",
+                copyBtn: "คัดลอกลิงก์",
+                footerText: "&copy; ศาสนาจารย์ ฮันจินจุน (010-2083-3106), Elim G Mission. All rights reserved."
+            },
+
+            // [Sinhala - Summary]
+            si: {
+                printBtn: "මුද්‍රණය",
+                headerLabel: "දේශනාව",
+                titleMain: "නිශ්ශබ්දතාවයේ දෙවියන්ගේ සැලැස්ම,",
+                titleSub: "\"අහම්බයන් නොමැත\"",
+                scriptureRef: "ලූක් 1:5-7",
+                scriptureTitle: "ශුද්ධ ලියවිල්ල (ලූක් 1:5-7)",
+                verse5: "ජූදයේ රජවූ හෙරොද්ගේ දවස්වලදී අබියාගේ පූජක පන්තියට අයිති සෙකරියා නම් පූජකයෙක් විය. ඔහුගේ භාර්යාව ආරොන්ගේ දූවරුන්ගෙන් කෙනෙක්ය, ඇගේ නම එලිසබෙත්ය.",
+                verse6: "ඔවුහු දෙදෙනාම දෙවියන්වහන්සේ ඉදිරියෙහි ධර්මිෂ්ඨව, ස්වාමීන්වහන්සේගේ සියලු පනත්වලද නියෝගවලද නිවැරදිව හැසිරුණෝය.",
+                verse7: "නුමුත් එලිසබෙත් වඳව සිටි බැවින් ඔවුන්ට දරුවෙක් නොවිය. තවද ඔවුන් දෙදෙනාම වයස්ගතව සිටියෝය.",
+                section1Title: "I. හැඳින්වීම",
+                section1Body: `<p>ආදරණීය සහෝදර සහෝදරියනි, දෙවිඳුන්ගේ සාමය ඔබට වේවා. අද අපි සෙකරියා සහ එලිසබෙත් හමුවෙමු.</p><p>දෙවියන් වහන්සේට ප්‍රේම කරන අය පවා දුෂ්කරතා අත්විඳිති. ඔවුන්ගේ වේදනාව අහම්බයක් නොවේ, එය තුළ දෙවියන් වහන්සේගේ පුදුමාකාර සැලැස්මක් සැඟවී ඇත.</p>`,
+                section2Title: "II. පසුබිම",
+                section2Body: `<p>ඔවුන් දෙවියන් ඉදිරියෙහි ධර්මිෂ්ඨ විය. නමුත් ඔවුන්ට දරුවන් සිටියේ නැත. එසේම ඔවුන් වයස්ගතව සිටියහ. මිනිස් බලාපොරොත්තු බිඳ වැටී තිබුණි.</p>`,
+                section3Title: "III. ඇදහිල්ල යනු කුමක්ද?",
+                section3Body: `<p>ඔවුන් දිගටම දෙවියන් වහන්සේට විශ්වාසවන්තව සේවය කළහ. මෙය සැබෑ ඇදහිල්ලයි.</p>`,
+                section4Title: "IV. ආත්මික අර්ථ නිරූපණය",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4"><span class="inline-block border-b-2 border-amber-500 pb-1">"අහම්බයන් නොමැත."</span></p><p>යේසුස් වහන්සේගේ මාවත සූදානම් කිරීමට <strong>බෞතීස්ම ජොහන්</strong> එවීම දෙවියන් වහන්සේගේ සැලැස්ම විය.</p>`,
+                section5Title: "V. නිගමනය",
+                section5Body: `<p><strong>අහම්බයන් නොමැත.</strong> ඔබේ වේදනාව පවා දෙවියන් වහන්සේගේ සැලැස්ම තුළ ඇත.</p>`,
+                section6Title: "VI. යෙදුම සහ යාච්ඤාව",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3">මා වෙනුවෙන් යාච්ඤාව</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-amber-600 font-bold">1.</span><span>ස්වාමීනි, නිශ්ශබ්දතාවයේදී පවා ඔබගේ සැලැස්ම විශ්වාස කිරීමට මට උපකාර කරන්න.</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3">අන් අය උදෙසා යාච්ඤාව</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-blue-600 font-bold">1.</span><span>රෝගී සහ පීඩිත අයට නව ශක්තියක් ලබා දෙන්න.</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2">සංක්‍රමණිකයන් සඳහා</h4><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-green-600 font-bold">1.</span><span>විදේශ රටවල සිටින සංක්‍රමණිකයන්ට සැබෑ සැනසීම ලබා දෙන්න.</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4">සතිපතා සැලැස්ම</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500"><span class="text-xs font-bold text-red-600">ඉරිදා</span><p class="text-sm text-stone-800">විශ්වාසයෙන් ප්‍රකාශ කරන්න: "මගේ දුක අහම්බයක් නොවේ."</p></div></div>`,
+                finalQuote: "\"අහම්බයන් නොමැත.<br>සියල්ල දෙවියන්ගේ සැලැස්ම තුළ ඇත.\"",
+                benediction: "ස්වාමීන් වහන්සේගේ නාමයෙන් ඔබට ආශීර්වාද කරමි.",
+                shareTitle: "පණිවිඩය බෙදාගන්න",
+                shareDesc: "සැනසීම අවශ්‍ය අය සමඟ මෙය බෙදාගන්න.",
+                shareBtn: "බෙදාගන්න",
+                copyBtn: "සබැඳිය පිටපත් කරන්න",
+                footerText: "&copy; Elim G Mission, Pastor Han Jin-jun (010-2083-3106). All rights reserved."
+            },
+
+            // [Russian - Summary]
+            ru: {
+                printBtn: "Печать",
+                headerLabel: "Проповедь",
+                titleMain: "Божий Промысел в Тишине,",
+                titleSub: "\"Случайностей Не Бывает\"",
+                scriptureRef: "Луки 1:5-7",
+                scriptureTitle: "Писание (Луки 1:5-7)",
+                verse5: "Во дни Ирода, царя Иудейского, был священник из Авиевой чреды, именем Захария, и жена его из рода Ааронова, имя ей Елисавета.",
+                verse6: "Оба они были праведны пред Богом, поступая по всем заповедям и уставам Господним беспорочно.",
+                verse7: "У них не было детей, ибо Елисавета была неплодна, и оба были уже в летах преклонных.",
+                section1Title: "I. Введение",
+                section1Body: `<p>Дорогие братья и сестры, мир вам. Сегодня мы встречаем Захарию и Елисавету.</p><p>Даже любящие Бога люди проходят через трудности. Их боль не случайна, в ней скрыт удивительный Божий замысел.</p>`,
+                section2Title: "II. Исторический фон",
+                section2Body: `<p>Они были праведны пред Богом. Но у них не было детей. Это считалось позором. Человеческая надежда исчезла.</p>`,
+                section3Title: "III. Что такое вера?",
+                section3Body: `<p>Они продолжали верно служить Богу. Это и есть истинная вера.</p>`,
+                section4Title: "IV. Духовное толкование",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4"><span class="inline-block border-b-2 border-amber-500 pb-1">"Случайностей не бывает."</span></p><p>Бог решил послать <strong>Иоанна Крестителя</strong> через эту семью. Их долгое ожидание было временем подготовки.</p>`,
+                section5Title: "V. Заключение",
+                section5Body: `<p>Помните, <strong>случайностей не бывает.</strong> Даже ваша боль находится в Божьем промысле.</p>`,
+                section6Title: "VI. Применение и молитва",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3">Молитва за себя</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-amber-600 font-bold">1.</span><span>Господи, помоги мне доверять Твоему промыслу даже в тишине.</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3">Ходатайственная молитва</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-blue-600 font-bold">1.</span><span>Даруй новые силы больным и нуждающимся.</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2">За мигрантов</h4><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-green-600 font-bold">1.</span><span>Даруй истинное утешение мигрантам на чужбине.</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4">План на неделю</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500"><span class="text-xs font-bold text-red-600">Воскресенье</span><p class="text-sm text-stone-800">Провозглашайте: "Мои страдания не случайны."</p></div></div>`,
+                finalQuote: "\"Случайностей не бывает.<br>Всё в Божьем промысле.\"",
+                benediction: "Благословляю вас именем Господа.",
+                shareTitle: "Поделиться",
+                shareDesc: "Поделитесь этим посланием утешения.",
+                shareBtn: "Поделиться",
+                copyBtn: "Копировать ссылку",
+                footerText: "&copy; Elim G Mission, Pastor Han Jin-jun (010-2083-3106). All rights reserved."
+            },
+
+            // [Nepali - Summary]
+            ne: {
+                printBtn: "प्रिन्ट",
+                headerLabel: "प्रवचन सन्देश",
+                titleMain: "मौनतामा परमेश्वरको योजना,",
+                titleSub: "\"कुनै संयोग छैन\"",
+                scriptureRef: "लूका १:५-७",
+                scriptureTitle: "धर्मशास्त्र (लूका १:५-७)",
+                verse5: "यहूदियाका राजा हेरोदका पालामा अबियाहका दलका जकरिया नाउँ गरेका एक जना पूजाहारी थिए, र तिनकी पत्नी हारूनका सन्तान थिइन्, र तिनको नाउँ इलिसिबा थियो।",
+                verse6: "तिनीहरू दुवै परमेश्वरको नजरमा धार्मिक थिए, र प्रभुका सबै आज्ञा र विधिविधानहरूमा निर्दोष भई चल्थे।",
+                verse7: "तर तिनीहरूका कुनै सन्तान थिएनन्, किनभने इलिसिबा बाँझी थिइन्, र तिनीहरू दुवैको उमेर ढल्केको थियो।",
+                section1Title: "I. परिचय",
+                section1Body: `<p>प्रिय मण्डली, प्रभुको शान्ति तपाईंसँग रहोस्। आज हामी जकरिया र इलिसिबालाई भेट्छौं।</p><p>परमेश्वरलाई प्रेम गर्ने मानिसहरूले पनि कष्ट भोग्छन्। तिनीहरूको पीडा संयोग होइन, यसमा परमेश्वरको अचम्मको योजना लुकेको छ।</p>`,
+                section2Title: "II. पृष्ठभूमि",
+                section2Body: `<p>तिनीहरू धर्मी थिए। तर तिनीहरूका सन्तान थिएनन्। यो ठूलो दुःख थियो। तिनीहरू वृद्ध भइसकेका थिए।</p>`,
+                section3Title: "III. विश्वास के हो?",
+                section3Body: `<p>तिनीहरूले निरन्तर परमेश्वरको सेवा गरे। यो साँचो विश्वास हो।</p>`,
+                section4Title: "IV. आध्यात्मिक व्याख्या",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4"><span class="inline-block border-b-2 border-amber-500 pb-1">"कुनै संयोग छैन।"</span></p><p>परमेश्वरले <strong>बप्तिस्मा दिने यूहन्ना</strong>लाई पठाउने निर्णय गर्नुभयो। तिनीहरूको पर्खाइ परमेश्वरको तयारीको समय थियो।</p>`,
+                section5Title: "V. निष्कर्ष",
+                section5Body: `<p>सम्झनुहोस्, <strong>कुनै संयोग छैन।</strong> तपाईंको पीडा पनि परमेश्वरको योजना भित्र छ।</p>`,
+                section6Title: "VI. प्रार्थना",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3">आफ्नो लागि प्रार्थना</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-amber-600 font-bold">1.</span><span>प्रभु, मौनतामा पनि तपाईंको योजनामा भरोसा गर्न मद्दत गर्नुहोस्।</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3">मध्यस्थता प्रार्थना</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-blue-600 font-bold">1.</span><span>बिरामी र खाँचोमा परेकाहरूलाई नयाँ शक्ति दिनुहोस्।</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2">प्रवासीहरूका लागि</h4><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-green-600 font-bold">1.</span><span>विदेशमा रहेका प्रवासीहरूलाई साँचो शान्ति दिनुहोस्।</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4">साप्ताहिक योजना</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500"><span class="text-xs font-bold text-red-600">आइतबार</span><p class="text-sm text-stone-800">विश्वासका साथ घोषणा गर्नुहोस्: "मेरो पीडा संयोग होइन।"</p></div></div>`,
+                finalQuote: "\"कुनै संयोग छैन।<br>सबै कुरा परमेश्वरको योजनामा छ।\"",
+                benediction: "प्रभुको नाउँमा आशिष दिन्छु।",
+                shareTitle: "सन्देश साझा गर्नुहोस्",
+                shareDesc: "यो सन्देश अरूसँग साझा गर्नुहोस्।",
+                shareBtn: "साझा गर्नुहोस्",
+                copyBtn: "लिंक प्रतिलिपि गर्नुहोस्",
+                footerText: "&copy; Elim G Mission, Pastor Han Jin-jun (010-2083-3106). All rights reserved."
+            },
+
+            // [Khmer - Summary]
+            km: {
+                printBtn: "បោះពុម្ព",
+                headerLabel: "សារធម្មទេសនា",
+                titleMain: "ការផ្គត់ផ្គង់របស់ព្រះនៅក្នុងភាពស្ងៀមស្ងាត់,",
+                titleSub: "\"គ្មានការចៃដន្យទេ\"",
+                scriptureRef: "លូកា ១:៥-៧",
+                scriptureTitle: "ព្រះគម្ពីរ (លូកា ១:៥-៧)",
+                verse5: "នៅ​ក្នុង​រាជ្យ​ស្ដេច​ហេរ៉ូដ ជា​ស្ដេច​ស្រុក​យូដា មាន​សង្ឃ​ម្នាក់​ឈ្មោះ​សាការី នៅ​ក្នុង​ក្រុម​របស់​លោក​អ័ប៊ីយ៉ា ប្រពន្ធ​គាត់​ឈ្មោះ​អេលីសាបិត ជា​ពូជ​អំបូរ​លោក​អើរ៉ុន។",
+                verse6: "អ្នក​ទាំង​ពីរ​ជា​មនុស្ស​សុចរិត​នៅ​ចំពោះ​ព្រះ ព្រម​ទាំង​ប្រតិបត្តិ​តាម​បញ្ញត្តិ និង​ច្បាប់​ទាំង​ប៉ុន្មាន​របស់​ព្រះអម្ចាស់​ឥត​មាន​កន្លែង​បន្ទោស​បាន​ឡើយ។",
+                verse7: "ប៉ុន្ដែ គាត់​គ្មាន​កូន​ទេ ព្រោះ​នាង​អេលីសាបិត​ជា​ស្ត្រី​អារ ហើយ​អ្នក​ទាំង​ពីរ​ក៏​មាន​វ័យ​ចាស់​ណាស់​ទៅ​ហើយ។",
+                section1Title: "I. សេចក្តីផ្តើម",
+                section1Body: `<p>សូមព្រះប្រទានពរ។ ថ្ងៃនេះយើងជួបសាការីនិងអេលីសាបិត។</p><p>ការឈឺចាប់របស់ពួកគេមិនមែនជាការចៃដន្យទេ វាមានផែនការរបស់ព្រះ។</p>`,
+                section2Title: "II. ផ្ទៃរឿង",
+                section2Body: `<p>ពួកគេជាមនុស្សសុចរិត ប៉ុន្តែគ្មានកូន។ ពួកគេចាស់ហើយ។ ក្តីសង្ឃឹមរបស់មនុស្សបានបាត់បង់។</p>`,
+                section3Title: "III. តើជំនឿគឺជាអ្វី?",
+                section3Body: `<p>ពួកគេនៅតែបម្រើព្រះ។ នេះគឺជាជំនឿពិត។</p>`,
+                section4Title: "IV. ការបកស្រាយ",
+                section4Body: `<p class="font-medium text-xl text-center text-stone-900 py-4"><span class="inline-block border-b-2 border-amber-500 pb-1">"គ្មានការចៃដន្យទេ។"</span></p><p>ព្រះបានចាត់ <strong>យ៉ូហានបាទីស្ទ</strong> មក។ ការរង់ចាំរបស់ពួកគេគឺជាពេលវេលារៀបចំ។</p>`,
+                section5Title: "V. សេចក្តីសន្និដ្ឋាន",
+                section5Body: `<p><strong>គ្មានការចៃដន្យទេ។</strong> សូម្បីតែការឈឺចាប់របស់អ្នកក៏ស្ថិតនៅក្នុងផែនការរបស់ព្រះដែរ។</p>`,
+                section6Title: "VI. ការអនុវត្ត",
+                prayerSelf: `<h3 class="text-lg font-bold text-stone-900 mb-3">ការអធិស្ឋានសម្រាប់ខ្លួនឯង</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-amber-600 font-bold">1.</span><span>សូមព្រះជួយខ្ញុំឱ្យទុកចិត្តលើផែនការរបស់ទ្រង់។</span></li></ul>`,
+                prayerOthers: `<h3 class="text-lg font-bold text-stone-900 mb-3">ការអធិស្ឋានសម្រាប់អ្នកដទៃ</h3><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-blue-600 font-bold">1.</span><span>សូមផ្តល់កម្លាំងថ្មីដល់អ្នកជំងឺ។</span></li></ul>`,
+                prayerMigrant: `<h4 class="text-sm font-bold text-stone-600 mb-2">សម្រាប់ជនអន្តោប្រវេសន៍</h4><ul class="space-y-3"><li class="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200"><span class="text-green-600 font-bold">1.</span><span>សូមផ្តល់ការលួងលោមពិតប្រាកដ។</span></li></ul>`,
+                weeklyPlan: `<h3 class="text-lg font-bold text-stone-900 mb-4">ផែនការប្រចាំសប្តាហ៍</h3><div class="space-y-3"><div class="bg-white p-3 rounded-lg border-l-4 border-red-500"><span class="text-xs font-bold text-red-600">ថ្ងៃអាទិត្យ</span><p class="text-sm text-stone-800">ប្រកាសថា៖ "ការឈឺចាប់របស់ខ្ញុំមិនមែនជាការចៃដន្យទេ។"</p></div></div>`,
+                finalQuote: "\"គ្មានការចៃដន្យទេ។<br>អ្វីៗទាំងអស់ស្ថិតនៅក្នុងផែនការរបស់ព្រះ។\"",
+                benediction: "សូមព្រះប្រទានពរ។",
+                shareTitle: "ចែករំលែកសារ",
+                shareDesc: "ចែករំលែកសារនេះជាមួយអ្នកដែលត្រូវការការលួងលោម។",
+                shareBtn: "ចែករំលែក",
+                copyBtn: "ចម្លងតំណ",
+                footerText: "&copy; Elim G Mission, Pastor Han Jin-jun (010-2083-3106). All rights reserved."
+            }
+        };
+
+        // 언어 변경 함수
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelector').value;
+            const data = resources[lang];
+            const body = document.body;
+            
+            // 언어별 폰트 클래스 설정
+            body.className = "antialiased min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 relative"; // reset
+            if (lang === 'th') body.classList.add('lang-th');
+            if (lang === 'km') body.classList.add('lang-km');
+            if (lang === 'si') body.classList.add('lang-si');
+            if (lang === 'ne') body.classList.add('lang-ne');
+
+            // 텍스트 업데이트
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (data[key]) {
+                    if (element.tagName === 'DIV' || key.includes('Body') || key.includes('prayer') || key.includes('weekly')) {
+                         element.innerHTML = data[key]; 
+                    } else {
+                        element.innerHTML = data[key]; 
+                    }
+                }
+            });
+        }
+
+        // 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        function copyUrl() {
+            const url = window.location.href;
+            const textArea = document.createElement("textarea");
+            textArea.value = url;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            textArea.style.top = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                     alert("Link copied / 주소가 복사되었습니다.");
+                } else {
+                    throw new Error("execCommand failed");
+                }
+            } catch (err) {
+                prompt("Copy this link:", url);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function shareContent() {
+            const shareData = {
+                title: 'No Coincidences (우연은 없다)',
+                text: 'Sermon by Pastor Han Jin-jun',
+                url: window.location.href
+            };
+            if (navigator.share) {
+                navigator.share(shareData).catch((error) => copyUrl());
+            } else {
+                copyUrl();
+            }
+        }
+    </script>
+</body>
+</html>
