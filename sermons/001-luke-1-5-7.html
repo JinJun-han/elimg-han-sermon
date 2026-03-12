@@ -59,6 +59,50 @@
         .tts-close{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:18px;padding:4px 8px;line-height:1}
         .tts-close:hover{color:#fff}
 
+        /* AVATAR PRESENTER */
+        .avatar-sec{background:linear-gradient(135deg,#0f0c29 0%,#302b63 50%,#24243e 100%);border-radius:16px;padding:32px;margin:0 32px;text-align:center;color:#fff;position:relative;overflow:hidden}
+        .avatar-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(196,154,34,.08) 0%,transparent 60%)}
+        .avatar-stage{position:relative;z-index:2}
+        .avatar-ring{width:160px;height:160px;border-radius:50%;margin:0 auto 16px;position:relative}
+        .avatar-ring::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(#C49A22,#E8C05A,#C49A22,transparent,#C49A22);animation:avatarSpin 4s linear infinite;opacity:.6}
+        .avatar-ring.speaking::before{opacity:1;animation:avatarSpin 1.5s linear infinite}
+        @keyframes avatarSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+        .avatar-body{width:152px;height:152px;border-radius:50%;background:linear-gradient(135deg,#3D1A2B,#5B2C3F);position:absolute;top:4px;left:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;z-index:2}
+        .avatar-face{font-size:52px;line-height:1;transition:transform .2s}
+        .avatar-ring.speaking .avatar-face{animation:avatarTalk .35s infinite alternate}
+        @keyframes avatarTalk{0%{transform:scaleY(1)}100%{transform:scaleY(1.06)}}
+        .avatar-name{font-size:11px;color:#E8C05A;margin-top:4px;font-weight:600}
+        .avatar-wave{display:flex;gap:3px;justify-content:center;align-items:flex-end;height:28px;margin:12px auto;width:120px}
+        .avatar-wave span{display:block;width:4px;background:linear-gradient(180deg,#E8C05A,#C49A22);border-radius:4px;transition:height .15s}
+        .avatar-wave.active span{animation:waveBar .5s ease-in-out infinite alternate}
+        .avatar-wave span:nth-child(1){height:8px;animation-delay:0s}
+        .avatar-wave span:nth-child(2){height:14px;animation-delay:.1s}
+        .avatar-wave span:nth-child(3){height:20px;animation-delay:.15s}
+        .avatar-wave span:nth-child(4){height:12px;animation-delay:.2s}
+        .avatar-wave span:nth-child(5){height:18px;animation-delay:.05s}
+        .avatar-wave span:nth-child(6){height:10px;animation-delay:.25s}
+        .avatar-wave span:nth-child(7){height:16px;animation-delay:.12s}
+        @keyframes waveBar{0%{height:4px;opacity:.4}100%{height:24px;opacity:1}}
+        .avatar-subtitle{background:rgba(0,0,0,.5);border-radius:10px;padding:14px 20px;max-width:500px;margin:16px auto 0;font-size:15px;line-height:1.8;color:rgba(255,255,255,.9);min-height:52px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);transition:opacity .3s}
+        .avatar-langs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+        .avatar-lang-btn{padding:6px 14px;border-radius:16px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.7);transition:all .2s;font-family:inherit}
+        .avatar-lang-btn:hover,.avatar-lang-btn.active{background:rgba(196,154,34,.2);border-color:#C49A22;color:#E8C05A}
+        .avatar-controls{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+        .avatar-ctrl{padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:inherit;display:flex;align-items:center;gap:5px}
+        .avatar-ctrl-play{background:linear-gradient(135deg,#C49A22,#E8C05A);color:#1a1a2e}
+        .avatar-ctrl-play:hover{transform:scale(1.05);box-shadow:0 4px 16px rgba(196,154,34,.4)}
+        .avatar-ctrl-stop{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
+        .avatar-ctrl-stop:hover{border-color:rgba(255,255,255,.4)}
+        .avatar-ctrl-speed{background:rgba(255,255,255,.08);color:#E8C05A;border:1px solid rgba(196,154,34,.2);font-size:11px;padding:6px 12px}
+        .avatar-fullscreen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f0c29 0%,#302b63 50%,#24243e 100%);display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px}
+        .avatar-fullscreen.active{display:flex}
+        .avatar-fullscreen .avatar-ring{width:220px;height:220px}
+        .avatar-fullscreen .avatar-body{width:212px;height:212px}
+        .avatar-fullscreen .avatar-face{font-size:72px}
+        .avatar-fullscreen .avatar-subtitle{font-size:20px;max-width:700px;padding:20px 28px}
+        .avatar-fs-close{position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,.5);font-size:28px;cursor:pointer}
+        .avatar-fs-close:hover{color:#fff}
+
         /* YOUTUBE SECTION */
         .yt-sermon{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:16px;padding:32px;margin:0 32px 0;text-align:center;color:#fff}
         .yt-sermon h3{font-size:20px;font-weight:700;margin-bottom:8px}
@@ -293,6 +337,62 @@
                             <p class="text-sm font-medium mt-2 text-stone-600" data-key="benediction">
                                 이 믿음으로 승리하는 저와 여러분 되시기를<br>주님의 이름으로 축원합니다.
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI 아바타 설교 -->
+            <section class="pt-10 pb-6 no-print" style="padding-left:0;padding-right:0">
+                <div class="avatar-sec">
+                    <div class="avatar-stage">
+                        <span style="font-size:11px;letter-spacing:2px;color:#C49A22;font-weight:600">AI AVATAR SERMON</span>
+                        <h3 style="font-size:20px;font-weight:700;margin:8px 0 4px;color:#fff">🎙 아바타 설교 듣기</h3>
+                        <p style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:18px">AI 음성으로 설교를 들으며 자막을 함께 볼 수 있습니다</p>
+
+                        <!-- Avatar -->
+                        <div class="avatar-ring" id="avatarRing">
+                            <div class="avatar-body">
+                                <div class="avatar-face" id="avatarFace">👨‍💼</div>
+                                <div class="avatar-name">한진준 목사</div>
+                            </div>
+                        </div>
+
+                        <!-- Sound Wave -->
+                        <div class="avatar-wave" id="avatarWave">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+
+                        <!-- Subtitle -->
+                        <div class="avatar-subtitle" id="avatarSubtitle">
+                            언어를 선택하고 ▶ 재생을 누르세요
+                        </div>
+
+                        <!-- Language Buttons -->
+                        <div class="avatar-langs" id="avatarLangs">
+                            <button class="avatar-lang-btn active" data-lang="ko">🇰🇷 한국어</button>
+                            <button class="avatar-lang-btn" data-lang="en">🇺🇸 English</button>
+                            <button class="avatar-lang-btn" data-lang="vi">🇻🇳 Tiếng Việt</button>
+                            <button class="avatar-lang-btn" data-lang="id">🇮🇩 Indonesia</button>
+                            <button class="avatar-lang-btn" data-lang="th">🇹🇭 ภาษาไทย</button>
+                            <button class="avatar-lang-btn" data-lang="si">🇱🇰 සිංහල</button>
+                            <button class="avatar-lang-btn" data-lang="ru">🇷🇺 Русский</button>
+                            <button class="avatar-lang-btn" data-lang="ne">🇳🇵 नेपाली</button>
+                            <button class="avatar-lang-btn" data-lang="km">🇰🇭 ភាសាខ្មែរ</button>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="avatar-controls">
+                            <button class="avatar-ctrl avatar-ctrl-play" id="avatarPlayBtn" onclick="avatarPlay()">▶ 재생</button>
+                            <button class="avatar-ctrl avatar-ctrl-stop" onclick="avatarStop()">⏹ 정지</button>
+                            <select class="avatar-ctrl avatar-ctrl-speed" id="avatarSpeed" onchange="avatarChangeSpeed()">
+                                <option value="0.7">🐢 느림</option>
+                                <option value="0.85">보통-</option>
+                                <option value="1" selected>보통</option>
+                                <option value="1.2">빠름-</option>
+                                <option value="1.5">🐇 빠름</option>
+                            </select>
+                            <button class="avatar-ctrl avatar-ctrl-stop" onclick="avatarFullscreen()" title="전체화면">⛶ 전체화면</button>
                         </div>
                     </div>
                 </div>
@@ -916,6 +1016,181 @@
         // 언어 변경 시 TTS 리셋
         const origChangeLanguage = typeof changeLanguage === 'function' ? changeLanguage : null;
 
+        // ===== AI 아바타 설교 =====
+        let avatarLang = 'ko';
+        let avatarUtterances = [];
+        let avatarPlaying = false;
+        let avatarCurrentIdx = 0;
+        let avatarTotalChunks = 0;
+        const avatarTTSMap = {ko:'ko-KR',en:'en-US',vi:'vi-VN',id:'id-ID',th:'th-TH',si:'si-LK',ru:'ru-RU',ne:'ne-NP',km:'km-KH'};
+
+        // 아바타 언어 버튼 이벤트
+        document.querySelectorAll('.avatar-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.avatar-lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                avatarLang = this.dataset.lang;
+                avatarStop();
+                document.getElementById('avatarSubtitle').textContent =
+                    avatarLang === 'ko' ? '언어를 선택하고 ▶ 재생을 누르세요' : 'Select language and press ▶ Play';
+            });
+        });
+
+        function getSermonFullText(lang) {
+            const r = resources[lang];
+            if (!r) return '';
+            const strip = html => { const d = document.createElement('div'); d.innerHTML = html; return d.textContent || d.innerText || ''; };
+            let parts = [];
+            parts.push(r.titleMain + ' ' + r.titleSub);
+            parts.push(r.scriptureRef);
+            if (r.verse5) parts.push(strip(r.verse5));
+            if (r.verse6) parts.push(strip(r.verse6));
+            if (r.verse7) parts.push(strip(r.verse7));
+            for (let i = 1; i <= 6; i++) {
+                if (r['section' + i + 'Title']) parts.push(strip(r['section' + i + 'Title']));
+                if (r['section' + i + 'Body']) parts.push(strip(r['section' + i + 'Body']));
+            }
+            if (r.prayerSelf) parts.push(strip(r.prayerSelf));
+            if (r.prayerOthers) parts.push(strip(r.prayerOthers));
+            if (r.prayerMigrant) parts.push(strip(r.prayerMigrant));
+            if (r.finalQuote) parts.push(strip(r.finalQuote));
+            return parts.join('\n');
+        }
+
+        function avatarChunkText(text) {
+            const sentences = text.replace(/\n+/g, '. ').split(/(?<=[.!?。।។])\s+/);
+            const chunks = []; let buf = '';
+            sentences.forEach(s => {
+                if ((buf + ' ' + s).length > 160 && buf) { chunks.push(buf.trim()); buf = s; }
+                else { buf = buf ? buf + ' ' + s : s; }
+            });
+            if (buf.trim()) chunks.push(buf.trim());
+            return chunks;
+        }
+
+        function prepareAvatarTTS() {
+            const text = getSermonFullText(avatarLang);
+            if (!text) return;
+            const chunks = avatarChunkText(text);
+            avatarTotalChunks = chunks.length;
+            avatarCurrentIdx = 0;
+            const rate = parseFloat(document.getElementById('avatarSpeed').value) || 1;
+            const voiceLang = avatarTTSMap[avatarLang] || 'ko-KR';
+
+            avatarUtterances = chunks.map((chunk, i) => {
+                const u = new SpeechSynthesisUtterance(chunk);
+                u.lang = voiceLang;
+                u.rate = rate;
+                u.onstart = () => {
+                    avatarCurrentIdx = i;
+                    document.getElementById('avatarSubtitle').textContent = chunk;
+                    // 전체화면 자막도 업데이트
+                    const fsSub = document.getElementById('fsAvatarSubtitle');
+                    if (fsSub) fsSub.textContent = chunk;
+                };
+                u.onend = () => {
+                    if (i < chunks.length - 1) {
+                        setTimeout(() => speechSynthesis.speak(avatarUtterances[i + 1]), 50);
+                    } else {
+                        avatarStopUI();
+                        document.getElementById('avatarSubtitle').textContent = '✅ 설교가 끝났습니다';
+                        const fsSub = document.getElementById('fsAvatarSubtitle');
+                        if (fsSub) fsSub.textContent = '✅ 설교가 끝났습니다';
+                    }
+                };
+                u.onerror = () => avatarStopUI();
+                return u;
+            });
+        }
+
+        function avatarStartUI() {
+            avatarPlaying = true;
+            document.getElementById('avatarRing').classList.add('speaking');
+            document.getElementById('avatarWave').classList.add('active');
+            document.getElementById('avatarPlayBtn').innerHTML = '⏸ 일시정지';
+            // 전체화면 동기화
+            const fsRing = document.getElementById('fsAvatarRing');
+            const fsWave = document.getElementById('fsAvatarWave');
+            const fsBtn = document.getElementById('fsPlayBtn');
+            if (fsRing) fsRing.classList.add('speaking');
+            if (fsWave) fsWave.classList.add('active');
+            if (fsBtn) fsBtn.innerHTML = '⏸ 일시정지';
+        }
+
+        function avatarStopUI() {
+            avatarPlaying = false;
+            document.getElementById('avatarRing').classList.remove('speaking');
+            document.getElementById('avatarWave').classList.remove('active');
+            document.getElementById('avatarPlayBtn').innerHTML = '▶ 재생';
+            const fsRing = document.getElementById('fsAvatarRing');
+            const fsWave = document.getElementById('fsAvatarWave');
+            const fsBtn = document.getElementById('fsPlayBtn');
+            if (fsRing) fsRing.classList.remove('speaking');
+            if (fsWave) fsWave.classList.remove('active');
+            if (fsBtn) fsBtn.innerHTML = '▶ 재생';
+        }
+
+        function avatarPlay() {
+            if (speechSynthesis.speaking && !speechSynthesis.paused) {
+                speechSynthesis.pause();
+                avatarStopUI();
+                document.getElementById('avatarPlayBtn').innerHTML = '▶ 이어듣기';
+                const fsBtn = document.getElementById('fsPlayBtn');
+                if (fsBtn) fsBtn.innerHTML = '▶ 이어듣기';
+                return;
+            }
+            if (speechSynthesis.paused) {
+                speechSynthesis.resume();
+                avatarStartUI();
+                return;
+            }
+            // 새로 시작
+            prepareAvatarTTS();
+            if (avatarUtterances.length > 0) {
+                avatarStartUI();
+                speechSynthesis.speak(avatarUtterances[0]);
+            }
+        }
+
+        function avatarStop() {
+            speechSynthesis.cancel();
+            avatarCurrentIdx = 0;
+            avatarStopUI();
+            document.getElementById('avatarSubtitle').textContent =
+                avatarLang === 'ko' ? '언어를 선택하고 ▶ 재생을 누르세요' : 'Select language and press ▶ Play';
+            const fsSub = document.getElementById('fsAvatarSubtitle');
+            if (fsSub) fsSub.textContent = avatarLang === 'ko' ? '▶ 재생을 누르세요' : 'Press ▶ Play';
+        }
+
+        function avatarChangeSpeed() {
+            const wasPlaying = avatarPlaying;
+            const idx = avatarCurrentIdx;
+            speechSynthesis.cancel();
+            prepareAvatarTTS();
+            if (wasPlaying && avatarUtterances[idx]) {
+                avatarStartUI();
+                speechSynthesis.speak(avatarUtterances[idx]);
+            }
+        }
+
+        function avatarFullscreen() {
+            const overlay = document.getElementById('avatarFullscreenOverlay');
+            if (!overlay) return;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function avatarExitFullscreen() {
+            const overlay = document.getElementById('avatarFullscreenOverlay');
+            if (!overlay) return;
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 전체화면 재생/정지 (인라인과 동기화)
+        function fsAvatarPlay() { avatarPlay(); }
+        function fsAvatarStop() { avatarStop(); }
+
         // ===== 카카오톡 공유 =====
         function shareKakao() {
             if (window.Kakao && Kakao.isInitialized()) {
@@ -1088,6 +1363,27 @@ ${r.prayerSelf}${r.prayerOthers}${r.prayerMigrant}
             <option value="1.5">1.5x 빠름</option>
         </select>
         <button class="tts-close" onclick="ttsClose()" title="닫기">✕</button>
+    </div>
+
+    <!-- 아바타 전체화면 오버레이 -->
+    <div class="avatar-fullscreen no-print" id="avatarFullscreenOverlay">
+        <button onclick="avatarExitFullscreen()" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:24px;width:44px;height:44px;border-radius:50%;cursor:pointer;z-index:10000" title="닫기">✕</button>
+        <span style="font-size:11px;letter-spacing:2px;color:#C49A22;font-weight:600">AI AVATAR SERMON — FULLSCREEN</span>
+        <div class="avatar-ring" id="fsAvatarRing">
+            <div class="avatar-body">
+                <div class="avatar-face">👨‍💼</div>
+                <div class="avatar-name" style="color:#C49A22">한진준 목사</div>
+            </div>
+        </div>
+        <div class="avatar-wave" id="fsAvatarWave">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="avatar-subtitle" id="fsAvatarSubtitle">▶ 재생을 누르세요</div>
+        <div style="display:flex;gap:10px;margin-top:16px">
+            <button class="avatar-ctrl avatar-ctrl-play" id="fsPlayBtn" onclick="fsAvatarPlay()">▶ 재생</button>
+            <button class="avatar-ctrl avatar-ctrl-stop" onclick="fsAvatarStop()">⏹ 정지</button>
+            <button class="avatar-ctrl avatar-ctrl-stop" onclick="avatarExitFullscreen()">✕ 닫기</button>
+        </div>
     </div>
 
     <!-- Kakao SDK -->
