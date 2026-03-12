@@ -396,10 +396,12 @@ function renderSermons(filter) {
       <div class="sc-desc">${s.desc}</div>
       <div class="sc-tags">${s.tags.map(t => `<span class="sc-tag">${t}</span>`).join('')}</div>
       <div class="sc-langs">${s.langs}</div>
-      <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+      <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
+        <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">🔊 음성</span>
+        <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">🎬 영상</span>
         <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">📄 PDF</span>
-        <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">📝 TXT</span>
-        <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">💬 카카오톡</span>
+        <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">💬 카톡</span>
+        <span style="font-size:10px;background:var(--gold-pale);color:var(--wine);padding:2px 8px;border-radius:10px">📱 WhatsApp</span>
       </div>
       <div class="sc-arrow">→</div>
     </a>

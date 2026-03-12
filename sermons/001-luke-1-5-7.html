@@ -45,6 +45,35 @@
             .no-print { display: none !important; }
             .print-break { page-break-before: always; }
         }
+
+        /* TTS AUDIO PLAYER */
+        .tts-player{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(135deg,#3D1A2B 0%,#1a1a2e 100%);border-top:2px solid #C49A22;padding:10px 16px;display:none;align-items:center;gap:10px;box-shadow:0 -4px 20px rgba(0,0,0,.3);flex-wrap:wrap}
+        .tts-player.active{display:flex}
+        .tts-btn{background:none;border:1px solid rgba(255,255,255,.2);color:#fff;cursor:pointer;padding:8px 12px;border-radius:8px;font-size:13px;transition:all .2s;display:flex;align-items:center;gap:5px;font-family:inherit}
+        .tts-btn:hover{border-color:#C49A22;color:#E8C05A}
+        .tts-btn.playing{background:#C49A22;color:#3D1A2B;border-color:#C49A22;font-weight:700}
+        .tts-progress{flex:1;min-width:120px;height:4px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+        .tts-progress-bar{height:100%;background:linear-gradient(90deg,#C49A22,#E8C05A);width:0%;transition:width .3s}
+        .tts-info{color:rgba(255,255,255,.5);font-size:11px;white-space:nowrap}
+        .tts-speed{background:rgba(255,255,255,.1);color:#E8C05A;border:1px solid rgba(196,154,34,.3);padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;font-family:inherit}
+        .tts-close{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:18px;padding:4px 8px;line-height:1}
+        .tts-close:hover{color:#fff}
+
+        /* YOUTUBE SECTION */
+        .yt-sermon{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:16px;padding:32px;margin:0 32px 0;text-align:center;color:#fff}
+        .yt-sermon h3{font-size:20px;font-weight:700;margin-bottom:8px}
+        .yt-sermon p{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px}
+        .yt-embed-box{position:relative;width:100%;padding-bottom:56.25%;border-radius:12px;overflow:hidden;background:#000;margin-bottom:16px}
+        .yt-embed-box iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+        .yt-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.7)}
+        .yt-placeholder span{font-size:48px;margin-bottom:12px}
+        .yt-placeholder p{font-size:14px;color:rgba(255,255,255,.6)}
+        .yt-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+        .yt-link{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;transition:all .2s}
+        .yt-link:hover{transform:translateY(-2px)}
+        .yt-link-red{background:#FF0000;color:#fff}
+        .yt-link-kakao{background:#FEE500;color:#3C1E1E}
+        .yt-link-whatsapp{background:#25D366;color:#fff}
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 relative">
@@ -70,10 +99,15 @@
             </select>
         </div>
 
-        <button onclick="window.print()" class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 text-sm text-stone-600 bg-white border border-stone-200 rounded-lg hover:bg-stone-50 hover:border-stone-400 transition-colors shadow-sm">
-            <i data-lucide="printer" class="w-4 h-4"></i>
-            <span data-key="printBtn">인쇄하기</span>
-        </button>
+        <div class="flex gap-2 w-full sm:w-auto">
+            <button onclick="toggleTTS()" id="ttsToggleBtn" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg hover:bg-amber-100 hover:border-amber-400 transition-colors shadow-sm font-semibold">
+                🔊 <span>듣기</span>
+            </button>
+            <button onclick="window.print()" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 text-sm text-stone-600 bg-white border border-stone-200 rounded-lg hover:bg-stone-50 hover:border-stone-400 transition-colors shadow-sm">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span data-key="printBtn">인쇄하기</span>
+            </button>
+        </div>
     </div>
 
     <!-- 메인 컨텐츠 컨테이너 -->
@@ -264,6 +298,30 @@
                 </div>
             </section>
 
+            <!-- YouTube 영상 설교 -->
+            <section class="pt-10 pb-6 no-print" style="padding-left:0;padding-right:0">
+                <div class="yt-sermon">
+                    <span style="font-size:13px;letter-spacing:2px;color:#C49A22;font-weight:600">VIDEO SERMON</span>
+                    <h3 style="margin-top:8px">🎬 영상으로 듣는 설교</h3>
+                    <p>한진준 목사의 육성으로 직접 들으실 수 있습니다</p>
+                    <div class="yt-embed-box">
+                        <!-- YouTube 영상 ID를 아래에 입력하세요 -->
+                        <div class="yt-placeholder" id="ytPlaceholder">
+                            <span>▶</span>
+                            <p>영상이 준비되면 여기에 표시됩니다</p>
+                            <p style="font-size:11px;color:rgba(255,255,255,.3);margin-top:8px">YouTube 영상 업로드 후 ID를 설정하세요</p>
+                        </div>
+                        <!-- 영상 준비 시 아래 주석을 해제하고 VIDEO_ID를 교체하세요 -->
+                        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="설교 영상" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe> -->
+                    </div>
+                    <div class="yt-links">
+                        <a href="https://youtube.com/@glocalbridge" target="_blank" class="yt-link yt-link-red">▶ YouTube 채널</a>
+                        <a href="https://pf.kakao.com/_YIULn" target="_blank" class="yt-link yt-link-kakao">💬 카카오톡</a>
+                        <a href="https://wa.me/?text=%F0%9F%93%96+%EC%84%A4%EA%B5%90%3A+%EC%9A%B0%EC%97%B0%EC%9D%80+%EC%97%86%EB%8B%A4+(%EB%88%84%EA%B0%80%EB%B3%B5%EC%9D%8C+1%3A5-7)+https%3A%2F%2Felimg-han-sermon.netlify.app%2Fsermons%2F001-luke-1-5-7.html" target="_blank" class="yt-link yt-link-whatsapp">📱 WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+
             <!-- 메시지 공유하기 -->
             <section class="border-t border-stone-200 pt-10 pb-4 no-print">
                 <div class="bg-stone-900 rounded-2xl p-8 text-center text-stone-300">
@@ -286,9 +344,25 @@
                         </button>
                     </div>
 
+                    <!-- 음성/영상 공유 -->
+                    <div class="border-t border-stone-700 pt-5 mt-2 mb-5">
+                        <p class="text-stone-500 text-sm mb-4">🎙 음성 · 영상으로 공유</p>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button onclick="toggleTTS()" class="flex items-center gap-2 px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition-all text-sm">
+                                🔊 음성으로 듣기 (TTS)
+                            </button>
+                            <a href="https://youtube.com/@glocalbridge" target="_blank" class="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all text-sm no-underline">
+                                ▶ YouTube 채널
+                            </a>
+                            <a href="https://wa.me/?text=%F0%9F%93%96+%EC%84%A4%EA%B5%90%3A+%EC%9A%B0%EC%97%B0%EC%9D%80+%EC%97%86%EB%8B%A4+https%3A%2F%2Felimg-han-sermon.netlify.app%2Fsermons%2F001-luke-1-5-7.html" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-lg transition-all text-sm font-semibold no-underline" style="background:#25D366;color:#fff">
+                                📱 WhatsApp 공유
+                            </a>
+                        </div>
+                    </div>
+
                     <!-- 다운로드 버튼 -->
                     <div class="border-t border-stone-700 pt-5 mt-2">
-                        <p class="text-stone-500 text-sm mb-4">설교문 다운로드</p>
+                        <p class="text-stone-500 text-sm mb-4">📥 설교문 다운로드</p>
                         <div class="flex flex-wrap justify-center gap-3">
                             <button onclick="downloadPDF()" class="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all text-sm">
                                 <span>📄</span> PDF 다운로드
@@ -701,6 +775,147 @@
             }
         }
 
+        // ===== TTS 음성 재생 시스템 =====
+        const LANG_MAP = {
+            ko: 'ko-KR', en: 'en-US', vi: 'vi-VN', id: 'id-ID',
+            th: 'th-TH', si: 'si-LK', ru: 'ru-RU', ne: 'ne-NP', km: 'km-KH'
+        };
+        let ttsUtterances = [];
+        let ttsCurrentIdx = 0;
+        let ttsIsPlaying = false;
+        let ttsTotalChunks = 0;
+
+        function getSermonText() {
+            const lang = document.getElementById('languageSelector').value;
+            const r = resources[lang] || resources.ko;
+            function strip(html) { const t = document.createElement('div'); t.innerHTML = html; return t.textContent || ''; }
+            return [
+                r.titleMain + ' ' + r.titleSub,
+                r.scriptureRef,
+                strip(r.verse5), strip(r.verse6), strip(r.verse7),
+                r.section1Title, strip(r.section1Body),
+                r.section2Title, strip(r.section2Body),
+                r.section3Title, strip(r.section3Body),
+                r.section4Title, strip(r.section4Body),
+                r.section5Title, strip(r.section5Body),
+                r.section6Title, strip(r.prayerSelf), strip(r.prayerOthers), strip(r.prayerMigrant)
+            ].join('\n\n');
+        }
+
+        function chunkText(text, maxLen) {
+            const sentences = text.split(/(?<=[.!?。\n])\s*/);
+            const chunks = [];
+            let current = '';
+            for (const s of sentences) {
+                if ((current + s).length > maxLen && current) {
+                    chunks.push(current.trim());
+                    current = '';
+                }
+                current += s + ' ';
+            }
+            if (current.trim()) chunks.push(current.trim());
+            return chunks;
+        }
+
+        function toggleTTS() {
+            const player = document.getElementById('ttsPlayer');
+            if (!player.classList.contains('active')) {
+                player.classList.add('active');
+                document.body.style.paddingBottom = '60px';
+                prepareTTS();
+            } else {
+                ttsPlayPause();
+            }
+        }
+
+        function prepareTTS() {
+            speechSynthesis.cancel();
+            const lang = document.getElementById('languageSelector').value;
+            const text = getSermonText();
+            const chunks = chunkText(text, 180);
+            ttsTotalChunks = chunks.length;
+            ttsCurrentIdx = 0;
+            ttsUtterances = chunks.map((chunk, i) => {
+                const u = new SpeechSynthesisUtterance(chunk);
+                u.lang = LANG_MAP[lang] || 'ko-KR';
+                u.rate = parseFloat(document.getElementById('ttsSpeed').value);
+                u.onstart = () => {
+                    ttsIsPlaying = true;
+                    ttsCurrentIdx = i;
+                    updateTTSUI();
+                };
+                u.onend = () => {
+                    if (i < chunks.length - 1) {
+                        // 다음 청크 자동 재생 (크롬 제한 우회)
+                        setTimeout(() => speechSynthesis.speak(ttsUtterances[i + 1]), 50);
+                    } else {
+                        ttsIsPlaying = false;
+                        document.getElementById('ttsPlayBtn').innerHTML = '▶ 재생';
+                        document.getElementById('ttsStatus').textContent = '완료';
+                        document.getElementById('ttsProgressBar').style.width = '100%';
+                    }
+                };
+                u.onerror = () => { ttsIsPlaying = false; updateTTSUI(); };
+                return u;
+            });
+            document.getElementById('ttsStatus').textContent = `준비됨 · ${ttsTotalChunks}구간 · ${lang.toUpperCase()}`;
+        }
+
+        function ttsPlayPause() {
+            if (speechSynthesis.speaking && !speechSynthesis.paused) {
+                speechSynthesis.pause();
+                ttsIsPlaying = false;
+                document.getElementById('ttsPlayBtn').innerHTML = '▶ 이어듣기';
+                document.getElementById('ttsStatus').textContent = '일시정지';
+            } else if (speechSynthesis.paused) {
+                speechSynthesis.resume();
+                ttsIsPlaying = true;
+                updateTTSUI();
+            } else {
+                prepareTTS();
+                if (ttsUtterances.length > 0) {
+                    speechSynthesis.speak(ttsUtterances[0]);
+                }
+            }
+        }
+
+        function ttsStop() {
+            speechSynthesis.cancel();
+            ttsIsPlaying = false;
+            ttsCurrentIdx = 0;
+            document.getElementById('ttsPlayBtn').innerHTML = '▶ 재생';
+            document.getElementById('ttsProgressBar').style.width = '0%';
+            document.getElementById('ttsStatus').textContent = '정지됨';
+        }
+
+        function ttsClose() {
+            speechSynthesis.cancel();
+            ttsIsPlaying = false;
+            document.getElementById('ttsPlayer').classList.remove('active');
+            document.body.style.paddingBottom = '';
+        }
+
+        function ttsChangeSpeed() {
+            const wasPlaying = speechSynthesis.speaking;
+            const idx = ttsCurrentIdx;
+            ttsStop();
+            prepareTTS();
+            if (wasPlaying && ttsUtterances[idx]) {
+                speechSynthesis.speak(ttsUtterances[idx]);
+            }
+        }
+
+        function updateTTSUI() {
+            const pct = ttsTotalChunks > 0 ? Math.round((ttsCurrentIdx / ttsTotalChunks) * 100) : 0;
+            document.getElementById('ttsProgressBar').style.width = pct + '%';
+            document.getElementById('ttsPlayBtn').innerHTML = ttsIsPlaying ? '⏸ 일시정지' : '▶ 재생';
+            const lang = document.getElementById('languageSelector').value;
+            document.getElementById('ttsStatus').textContent = `${ttsCurrentIdx + 1}/${ttsTotalChunks} · ${lang.toUpperCase()}`;
+        }
+
+        // 언어 변경 시 TTS 리셋
+        const origChangeLanguage = typeof changeLanguage === 'function' ? changeLanguage : null;
+
         // ===== 카카오톡 공유 =====
         function shareKakao() {
             if (window.Kakao && Kakao.isInitialized()) {
@@ -859,6 +1074,22 @@ ${r.prayerSelf}${r.prayerOthers}${r.prayerMigrant}
             URL.revokeObjectURL(a.href);
         }
     </script>
+    <!-- TTS Audio Player (Fixed Bottom) -->
+    <div class="tts-player no-print" id="ttsPlayer">
+        <button class="tts-btn" id="ttsPlayBtn" onclick="ttsPlayPause()" title="재생/일시정지">▶ 재생</button>
+        <button class="tts-btn" onclick="ttsStop()" title="정지">⏹</button>
+        <div class="tts-progress"><div class="tts-progress-bar" id="ttsProgressBar"></div></div>
+        <span class="tts-info" id="ttsStatus">준비됨</span>
+        <select class="tts-speed" id="ttsSpeed" onchange="ttsChangeSpeed()">
+            <option value="0.7">0.7x 느림</option>
+            <option value="0.85">0.85x</option>
+            <option value="1" selected>1x 보통</option>
+            <option value="1.2">1.2x</option>
+            <option value="1.5">1.5x 빠름</option>
+        </select>
+        <button class="tts-close" onclick="ttsClose()" title="닫기">✕</button>
+    </div>
+
     <!-- Kakao SDK -->
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
     <script>
