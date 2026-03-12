@@ -384,7 +384,7 @@
                         <span style="font-size:11px;letter-spacing:2px;color:#C49A22;font-weight:600">AI AVATAR SERMON — MULTILINGUAL</span>
                         <h3 style="font-size:20px;font-weight:700;margin:8px 0 4px;color:#fff">🌐 다국어 아바타 설교</h3>
                         <p style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:6px">AI 음성으로 설교를 들으며 자막을 함께 볼 수 있습니다</p>
-                        <p style="font-size:11px;color:rgba(255,255,255,.3);margin-bottom:18px">🇰🇷 한국어 = 목사 실제 음성 | 🌐 외국어 = AI TTS</p>
+                        <p style="font-size:11px;color:rgba(255,255,255,.3);margin-bottom:18px">🇰🇷 한국어 = 목사 실제 음성 | 🌐 외국어 = Google AI 음성 (모든 언어 지원)</p>
 
                         <!-- Avatar -->
                         <div class="avatar-ring" id="avatarRing">
@@ -1065,28 +1065,15 @@
             }
         })();
 
-        // ===== AI 아바타 설교 (다국어) =====
+        // ===== AI 아바타 설교 (다국어 — Google TTS) =====
         let avatarLang = 'ko';
-        let avatarUtterances = [];
         let avatarPlaying = false;
         let avatarCurrentIdx = 0;
         let avatarTotalChunks = 0;
-        let avatarMode = 'audio'; // 'audio' = real m4a, 'tts' = Web Speech API
-        let avatarAudio = null; // HTML5 Audio object for real audio mode
-        let avatarSubtitleTimer = null;
-        const avatarTTSMap = {ko:'ko-KR',en:'en-US',vi:'vi-VN',id:'id-ID',th:'th-TH',si:'si-LK',ru:'ru-RU',ne:'ne-NP',km:'km-KH'};
-
-        // TTS 지원 언어 확인 (브라우저별)
-        const ttsSupported = {};
-        function checkTTSSupport() {
-            const voices = speechSynthesis.getVoices();
-            Object.keys(avatarTTSMap).forEach(lang => {
-                const code = avatarTTSMap[lang];
-                ttsSupported[lang] = voices.some(v => v.lang.startsWith(code.split('-')[0]));
-            });
-        }
-        speechSynthesis.onvoiceschanged = checkTTSSupport;
-        setTimeout(checkTTSSupport, 500);
+        let avatarAudio = null;
+        let avatarChunks = [];
+        let avatarPaused = false;
+        const avatarGTTSLang = {ko:'ko',en:'en',vi:'vi',id:'id',th:'th',si:'si',ru:'ru',ne:'ne',km:'km'};
 
         // 아바타 언어 버튼 이벤트
         document.querySelectorAll('.avatar-lang-btn').forEach(btn => {
@@ -1094,15 +1081,11 @@
                 document.querySelectorAll('.avatar-lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 avatarLang = this.dataset.lang;
-                avatarMode = (avatarLang === 'ko') ? 'audio' : 'tts';
                 avatarStop();
                 if (avatarLang === 'ko') {
-                    document.getElementById('avatarSubtitle').textContent = '🎤 목사님 실제 음성으로 재생됩니다. ▶ 재생을 누르세요';
+                    updateAvatarSubtitle('🎤 목사님 실제 음성으로 재생됩니다. ▶ 재생을 누르세요');
                 } else {
-                    const supported = ttsSupported[avatarLang] !== false;
-                    document.getElementById('avatarSubtitle').textContent = supported
-                        ? '🤖 AI 음성으로 재생됩니다. ▶ 재생을 누르세요'
-                        : '⚠️ 이 브라우저에서 ' + avatarLang.toUpperCase() + ' 음성을 지원하지 않을 수 있습니다. Chrome 권장.';
+                    updateAvatarSubtitle('🤖 AI 음성 (' + avatarLang.toUpperCase() + '). ▶ 재생을 누르세요');
                 }
             });
         });
@@ -1128,91 +1111,51 @@
             return parts.join('\n');
         }
 
-        function avatarChunkText(text) {
-            const sentences = text.replace(/\n+/g, '. ').split(/(?<=[.!?。।។])\s+/);
+        // Google TTS용 청크 (200자 제한)
+        function avatarChunkForGTTS(text) {
+            const raw = text.replace(/\n+/g, '. ').replace(/\s+/g, ' ');
+            const sentences = raw.split(/(?<=[.!?。।។·:])\s*/);
             const chunks = []; let buf = '';
             sentences.forEach(s => {
-                if ((buf + ' ' + s).length > 160 && buf) { chunks.push(buf.trim()); buf = s; }
-                else { buf = buf ? buf + ' ' + s : s; }
+                if (!s.trim()) return;
+                if ((buf + ' ' + s).length > 180 && buf) {
+                    chunks.push(buf.trim());
+                    buf = s;
+                } else {
+                    buf = buf ? buf + ' ' + s : s;
+                }
             });
             if (buf.trim()) chunks.push(buf.trim());
             return chunks;
         }
 
-        // ---- TTS 모드 준비 (외국어) ----
-        function prepareAvatarTTS() {
-            const text = getSermonFullText(avatarLang);
-            if (!text) return;
-            const chunks = avatarChunkText(text);
-            avatarTotalChunks = chunks.length;
-            avatarCurrentIdx = 0;
-            const rate = parseFloat(document.getElementById('avatarSpeed').value) || 1;
-            const voiceLang = avatarTTSMap[avatarLang] || 'ko-KR';
-
-            // 최적 음성 선택
-            const voices = speechSynthesis.getVoices();
-            let bestVoice = null;
-            const langCode = voiceLang.split('-')[0];
-            // 우선순위: 정확한 locale → 같은 언어의 아무 음성
-            bestVoice = voices.find(v => v.lang === voiceLang);
-            if (!bestVoice) bestVoice = voices.find(v => v.lang.startsWith(langCode));
-            if (!bestVoice) bestVoice = voices.find(v => v.lang.startsWith(langCode.toLowerCase()));
-
-            avatarUtterances = chunks.map((chunk, i) => {
-                const u = new SpeechSynthesisUtterance(chunk);
-                u.lang = voiceLang;
-                u.rate = rate;
-                if (bestVoice) u.voice = bestVoice;
-                u.onstart = () => {
-                    avatarCurrentIdx = i;
-                    updateAvatarSubtitle(chunk);
-                };
-                u.onend = () => {
-                    if (i < chunks.length - 1) {
-                        setTimeout(() => speechSynthesis.speak(avatarUtterances[i + 1]), 50);
-                    } else {
-                        avatarStopUI();
-                        updateAvatarSubtitle('✅ 설교가 끝났습니다');
-                    }
-                };
-                u.onerror = (e) => {
-                    console.warn('TTS Error:', avatarLang, e);
-                    // 오류 시 다음 청크로 넘어가기 시도
-                    if (i < chunks.length - 1) {
-                        setTimeout(() => speechSynthesis.speak(avatarUtterances[i + 1]), 100);
-                    } else {
-                        avatarStopUI();
-                        updateAvatarSubtitle('⚠️ TTS 오류 — Chrome 브라우저를 사용해 주세요');
-                    }
-                };
-                return u;
-            });
+        // Google Translate TTS URL 생성
+        function gttsTSUrl(text, lang) {
+            return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='
+                + encodeURIComponent(lang)
+                + '&q=' + encodeURIComponent(text);
         }
 
-        // ---- 실제 오디오 모드 준비 (한국어) ----
-        function prepareAvatarAudio() {
+        // ---- 한국어: 실제 m4a 오디오 준비 ----
+        function prepareKoreanAudio() {
             if (avatarAudio) { avatarAudio.pause(); avatarAudio = null; }
             avatarAudio = new Audio('sermon-001-audio.m4a');
             avatarAudio.playbackRate = parseFloat(document.getElementById('avatarSpeed').value) || 1;
 
-            // 자막 동기화: 텍스트를 시간 기반으로 나누어 표시
             const text = getSermonFullText('ko');
-            const chunks = avatarChunkText(text);
-            avatarTotalChunks = chunks.length;
+            avatarChunks = avatarChunkForGTTS(text);
+            avatarTotalChunks = avatarChunks.length;
             avatarCurrentIdx = 0;
 
             avatarAudio.addEventListener('loadedmetadata', () => {
                 const dur = avatarAudio.duration;
-                // 텍스트 길이 비율로 각 자막의 시간 구간 계산
-                const totalLen = chunks.reduce((s, c) => s + c.length, 0);
+                const totalLen = avatarChunks.reduce((s, c) => s + c.length, 0);
                 let cumLen = 0;
-                const timings = chunks.map(c => {
+                const timings = avatarChunks.map(c => {
                     const start = (cumLen / totalLen) * dur;
                     cumLen += c.length;
                     return start;
                 });
-
-                // timeupdate로 자막 동기화
                 avatarAudio.addEventListener('timeupdate', () => {
                     const t = avatarAudio.currentTime;
                     let idx = 0;
@@ -1221,23 +1164,65 @@
                     }
                     if (idx !== avatarCurrentIdx) {
                         avatarCurrentIdx = idx;
-                        updateAvatarSubtitle(chunks[idx]);
+                        updateAvatarSubtitle(avatarChunks[idx]);
                     }
                 });
             });
-
             avatarAudio.addEventListener('ended', () => {
                 avatarStopUI();
                 updateAvatarSubtitle('✅ 설교가 끝났습니다');
             });
-
             avatarAudio.addEventListener('error', () => {
                 avatarStopUI();
                 updateAvatarSubtitle('⚠️ 오디오 로드 실패 — 위의 오디오 플레이어를 사용해 주세요');
             });
         }
 
-        // ---- 자막 업데이트 (인라인 + 전체화면) ----
+        // ---- 외국어: Google TTS 청크 재생 ----
+        function playGTTSChunk(idx) {
+            if (idx >= avatarChunks.length) {
+                avatarStopUI();
+                updateAvatarSubtitle('✅ 설교가 끝났습니다');
+                return;
+            }
+            if (!avatarPlaying) return;
+
+            avatarCurrentIdx = idx;
+            const chunk = avatarChunks[idx];
+            updateAvatarSubtitle(chunk);
+
+            const lang = avatarGTTSLang[avatarLang] || 'en';
+            const url = gttsTSUrl(chunk, lang);
+
+            if (avatarAudio) { avatarAudio.pause(); }
+            avatarAudio = new Audio(url);
+            avatarAudio.playbackRate = parseFloat(document.getElementById('avatarSpeed').value) || 1;
+
+            avatarAudio.onended = () => {
+                if (avatarPlaying) {
+                    playGTTSChunk(idx + 1);
+                }
+            };
+            avatarAudio.onerror = () => {
+                console.warn('GTTS chunk error, skipping:', idx, avatarLang);
+                // 오류 시 다음 청크로
+                if (avatarPlaying && idx < avatarChunks.length - 1) {
+                    setTimeout(() => playGTTSChunk(idx + 1), 300);
+                } else {
+                    avatarStopUI();
+                    updateAvatarSubtitle('⚠️ 음성 로드 실패 — 인터넷 연결을 확인하세요');
+                }
+            };
+
+            avatarAudio.play().catch(e => {
+                console.error('GTTS play error:', e);
+                if (idx < avatarChunks.length - 1) {
+                    setTimeout(() => playGTTSChunk(idx + 1), 300);
+                }
+            });
+        }
+
+        // ---- 자막 업데이트 ----
         function updateAvatarSubtitle(text) {
             document.getElementById('avatarSubtitle').textContent = text;
             const fsSub = document.getElementById('fsAvatarSubtitle');
@@ -1247,6 +1232,7 @@
         // ---- UI 상태 제어 ----
         function avatarStartUI() {
             avatarPlaying = true;
+            avatarPaused = false;
             document.getElementById('avatarRing').classList.add('speaking');
             document.getElementById('avatarWave').classList.add('active');
             document.getElementById('avatarPlayBtn').innerHTML = '⏸ 일시정지';
@@ -1260,6 +1246,7 @@
 
         function avatarStopUI() {
             avatarPlaying = false;
+            avatarPaused = false;
             document.getElementById('avatarRing').classList.remove('speaking');
             document.getElementById('avatarWave').classList.remove('active');
             document.getElementById('avatarPlayBtn').innerHTML = '▶ 재생';
@@ -1273,82 +1260,80 @@
 
         // ---- 아바타 재생 ----
         function avatarPlay() {
+            // 일시정지 상태에서 이어듣기
+            if (avatarPaused && avatarAudio) {
+                avatarAudio.play();
+                avatarPlaying = true;
+                avatarPaused = false;
+                document.getElementById('avatarRing').classList.add('speaking');
+                document.getElementById('avatarWave').classList.add('active');
+                document.getElementById('avatarPlayBtn').innerHTML = '⏸ 일시정지';
+                const fsRing = document.getElementById('fsAvatarRing');
+                const fsWave = document.getElementById('fsAvatarWave');
+                const fsBtn = document.getElementById('fsPlayBtn');
+                if (fsRing) fsRing.classList.add('speaking');
+                if (fsWave) fsWave.classList.add('active');
+                if (fsBtn) fsBtn.innerHTML = '⏸ 일시정지';
+                return;
+            }
+
+            // 재생 중 → 일시정지
+            if (avatarPlaying && avatarAudio && !avatarAudio.paused) {
+                avatarAudio.pause();
+                avatarPlaying = false;
+                avatarPaused = true;
+                document.getElementById('avatarRing').classList.remove('speaking');
+                document.getElementById('avatarWave').classList.remove('active');
+                document.getElementById('avatarPlayBtn').innerHTML = '▶ 이어듣기';
+                const fsBtn = document.getElementById('fsPlayBtn');
+                if (fsBtn) fsBtn.innerHTML = '▶ 이어듣기';
+                return;
+            }
+
+            // 새로 시작
             if (avatarLang === 'ko') {
-                // 한국어: 실제 m4a 오디오 사용
-                if (avatarAudio && !avatarAudio.paused) {
-                    avatarAudio.pause();
-                    avatarStopUI();
-                    document.getElementById('avatarPlayBtn').innerHTML = '▶ 이어듣기';
-                    const fsBtn = document.getElementById('fsPlayBtn');
-                    if (fsBtn) fsBtn.innerHTML = '▶ 이어듣기';
-                    return;
-                }
-                if (avatarAudio && avatarAudio.paused && avatarAudio.currentTime > 0) {
-                    avatarAudio.play();
-                    avatarStartUI();
-                    return;
-                }
-                // 새로 시작
-                prepareAvatarAudio();
+                // 한국어: 실제 m4a
+                prepareKoreanAudio();
                 avatarAudio.play().then(() => {
                     avatarStartUI();
                     updateAvatarSubtitle('🎤 목사님 육성 재생 중…');
                 }).catch(e => {
                     console.error('Audio play error:', e);
-                    updateAvatarSubtitle('⚠️ 자동 재생 차단됨 — 다시 ▶ 버튼을 눌러주세요');
+                    updateAvatarSubtitle('⚠️ 재생 차단됨 — ▶ 버튼을 다시 눌러주세요');
                 });
             } else {
-                // 외국어: TTS 사용
-                if (speechSynthesis.speaking && !speechSynthesis.paused) {
-                    speechSynthesis.pause();
-                    avatarStopUI();
-                    document.getElementById('avatarPlayBtn').innerHTML = '▶ 이어듣기';
-                    const fsBtn = document.getElementById('fsPlayBtn');
-                    if (fsBtn) fsBtn.innerHTML = '▶ 이어듣기';
+                // 외국어: Google Translate TTS
+                const text = getSermonFullText(avatarLang);
+                if (!text) {
+                    updateAvatarSubtitle('⚠️ 이 언어의 설교문이 없습니다');
                     return;
                 }
-                if (speechSynthesis.paused) {
-                    speechSynthesis.resume();
-                    avatarStartUI();
-                    return;
-                }
-                prepareAvatarTTS();
-                if (avatarUtterances.length > 0) {
-                    avatarStartUI();
-                    speechSynthesis.speak(avatarUtterances[0]);
-                }
+                avatarChunks = avatarChunkForGTTS(text);
+                avatarTotalChunks = avatarChunks.length;
+                avatarCurrentIdx = 0;
+                avatarStartUI();
+                updateAvatarSubtitle('🔊 ' + avatarLang.toUpperCase() + ' 음성 로딩 중…');
+                playGTTSChunk(0);
             }
         }
 
         // ---- 아바타 정지 ----
         function avatarStop() {
-            // 실제 오디오 정지
-            if (avatarAudio) { avatarAudio.pause(); avatarAudio.currentTime = 0; }
-            // TTS 정지
-            speechSynthesis.cancel();
+            if (avatarAudio) { avatarAudio.pause(); avatarAudio.currentTime = 0; avatarAudio = null; }
             avatarCurrentIdx = 0;
             avatarStopUI();
             if (avatarLang === 'ko') {
                 updateAvatarSubtitle('🎤 목사님 실제 음성으로 재생됩니다. ▶ 재생을 누르세요');
             } else {
-                updateAvatarSubtitle('🤖 AI 음성으로 재생됩니다. ▶ 재생을 누르세요');
+                updateAvatarSubtitle('🤖 AI 음성 (' + avatarLang.toUpperCase() + '). ▶ 재생을 누르세요');
             }
         }
 
         // ---- 속도 변경 ----
         function avatarChangeSpeed() {
             const speed = parseFloat(document.getElementById('avatarSpeed').value) || 1;
-            if (avatarLang === 'ko' && avatarAudio) {
+            if (avatarAudio) {
                 avatarAudio.playbackRate = speed;
-            } else {
-                const wasPlaying = avatarPlaying;
-                const idx = avatarCurrentIdx;
-                speechSynthesis.cancel();
-                prepareAvatarTTS();
-                if (wasPlaying && avatarUtterances[idx]) {
-                    avatarStartUI();
-                    speechSynthesis.speak(avatarUtterances[idx]);
-                }
             }
         }
 
